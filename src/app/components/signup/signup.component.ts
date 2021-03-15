@@ -25,7 +25,6 @@ export class SignupComponent {
       'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
       'name': [null, Validators.required],
       'password': [null, [Validators.required, this.checkPassword]],
-      'description': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       'date': [null, Validators.required]
     });
   }
