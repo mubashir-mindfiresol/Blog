@@ -58,5 +58,4 @@ export class LoginComponent implements OnInit {
   onSubmit(post) {
     this.post = post;
   }
-
 }
