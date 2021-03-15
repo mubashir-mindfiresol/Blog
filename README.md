@@ -4,9 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Screenshots
 ![Signup Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/signup.PNG)
+
 (Signup Page)
 
 ![Login Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/login.PNG)
+
 (Login Page)
 
 ## Development server
