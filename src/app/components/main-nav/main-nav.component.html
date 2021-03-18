@@ -3,11 +3,10 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar><a mat-list-item routerLink="/homepage" routerLinkActive="active"><mat-icon>home</mat-icon></a>Options</mat-toolbar>
+    <mat-toolbar>Options</mat-toolbar>
     <mat-nav-list>
-      <a *ngIf="!loggedIn" mat-list-item routerLink="/signup" routerLinkActive="active"><mat-icon>assignment</mat-icon>  SignUp</a>
-      <a *ngIf="!loggedIn" mat-list-item routerLink="/login" routerLinkActive="active"><mat-icon>login</mat-icon>  Login</a>
-      <a *ngIf="loggedIn" mat-list-item routerLink="/profile" routerLinkActive="active"><mat-icon>face</mat-icon>  User</a>
+      <a *ngIf="!loggedIn" mat-list-item routerLink="/login" routerLinkActive="active"><mat-icon>power_settings_new</mat-icon> Login/SignUp</a>
+      <a *ngIf="loggedIn" mat-list-item routerLink="/profile" routerLinkActive="active"><mat-icon>fingerprint</mat-icon> Personal Details</a>
       <a *ngIf="loggedIn" mat-list-item routerLinkActive="active" (click)="logoutUser()"><mat-icon>logout</mat-icon>  Logout</a>
     </mat-nav-list>
   </mat-sidenav>
