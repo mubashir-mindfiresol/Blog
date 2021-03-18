@@ -14,14 +14,15 @@ export class AuthInterceptor implements HttpInterceptor{
         let token=this.loginService.getToken()
         let newReq:any;
 
-        console.log("INTERCEPTOR",token);
+        console.log("INTERCEPTOR",req);
 
-        if(token!=null){
-           newReq=req.clone({headers:req.headers.set('Authorization',`Bearer ${token}`)})
-
+        if(!req.url.endsWith("/token")){
+        newReq=req.clone({headers:req.headers.set('Authorization',`Bearer ${token}`)})
         }
-
-        return next.handle(newReq) .pipe(
+        else{
+            newReq=req.clone();
+        }
+        return next.handle(newReq).pipe(
             catchError(error => {
               if (error.status === 401 || error.status === 403) {
                 console.log(error.status)
