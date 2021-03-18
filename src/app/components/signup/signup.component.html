@@ -1,4 +1,8 @@
-<div class="container" *ngIf="!post; else forminfo"> 
+<div class="bootstrap-wrapper text-center mt">
+
+  <div class="container" *ngIf="!post; else forminfo"> 
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
 
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
 
@@ -32,9 +36,13 @@
     </mat-form-field>
 
     <div class="form-element">
-      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">SignUp</button>
+      <button mat-raised-button color="primary" type="reset" style="margin-left: 10px;">Reset</button>
     </div>
     </form>
+    </div>
+    </div>
+</div>
 </div>
 <ng-template #forminfo>
   {{ post | json }}

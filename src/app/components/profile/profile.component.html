@@ -1,0 +1,7 @@
+<div class="bootstrap-wrapper">
+    <div class="container text-center mt">
+        <h1>Welcome to User Profile</h1>
+        <h1 *ngIf="user">User is {{user.name}}</h1>
+        <button mat-raised-button (click)="getUser()"> Get Details</button>
+    </div>
+</div>

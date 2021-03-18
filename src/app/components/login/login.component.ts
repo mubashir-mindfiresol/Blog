@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,53 +8,34 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  formGroup: FormGroup;
-  titleAlert: string = 'This field is required';
-  post: any = '';
-
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-    this.createForm();
+  credentials={
+    username:'',
+    password:''
   }
 
-  createForm() {
-    let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    this.formGroup = this.formBuilder.group({
-      'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
-      'password': [null, [Validators.required, this.checkPassword]],
-    });
-  }
+  constructor(private loginService: LoginService) { }
 
-  checkPassword(control) {
-    let enteredPassword = control.value
-    let passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
-    return (!passwordCheck.test(enteredPassword) && enteredPassword) ? { 'requirements': true } : null;
-  }
+  ngOnInit(): void{}
 
-  checkInUseEmail(control) {
-    let db = ['abc@gmail.com','xyz@gmail.com'];
-    return new Observable(observer => {
-      setTimeout(() => {
-        let result = (db.indexOf(control.value) !== -1) ? { 'alreadyInUse': true } : null;
-        observer.next(result);
-        observer.complete();
-      }, 1000)
-    })
-  }
+  onSubmit() {
+    if ((this.credentials.username!='' && this.credentials.password!='') && (this.credentials.username!=null && this.credentials.password!=null)) {
+      console.log("Field are FILLED!!");
+      //token generate
+      this.loginService.generateToken(this.credentials).subscribe(
+        (response:any)=>{
+          //success
+          console.log(response.token);
 
-  getErrorEmail() {
-    return this.formGroup.get('email').hasError('required') ? 'Field is required' :
-      this.formGroup.get('email').hasError('pattern') ? 'Not a valid emailaddress' :
-        this.formGroup.get('email').hasError('alreadyInUse') ? 'This Email-Address is already in use' : '';
-  }
-
-  getErrorPassword() {
-    return this.formGroup.get('password').hasError('required') ? 'Field is required (at least eight characters, one uppercase letter and one number)' :
-      this.formGroup.get('password').hasError('requirements') ? 'Password needs to be at least eight characters, one uppercase letter and one number' : '';
-  }
-
-  onSubmit(post) {
-    this.post = post;
+          this.loginService.loginUser(response.token);
+          window.location.href="/profile"
+        },
+        error=>{
+          //error
+          console.log(error);
+        }
+      );
+    } else {
+      console.log("Fields are Empty!!");
+    }
   }
 }
