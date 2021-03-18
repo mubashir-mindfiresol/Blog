@@ -1,28 +1,40 @@
-<div class="container" *ngIf="!post; else forminfo"> 
+<div class="bootstrap-wrapper text-center mt">
 
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
-  
-      <mat-form-field class="form-element">
-        <input matInput placeholder="Email Address" formControlName="email">
-        <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
-          {{ getErrorEmail() }}
-        </mat-error>
+<div class="container"> 
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+
+    <form (ngSubmit)="onSubmit()">
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Username</mat-label>
+        <input
+        [(ngModel)]="credentials.username"
+        name="username"
+         type="email" matInput required/>
       </mat-form-field>
-  
-      <mat-form-field class="form-element">
-        <input matInput placeholder="Password" [type]="!hide ? 'password' : 'text'" formControlName="password" required>
-        <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-        <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
-        <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
-          {{ getErrorPassword() }}
-        </mat-error>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input 
+        [(ngModel)]="credentials.password"
+        name="username"
+        type="password" matInput required/>
       </mat-form-field>
-  
-      <div class="form-element">
-        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+
+      <div class="container text-center">
+        <button type="submit" mat-raised-button color="primary">
+          Login
+        </button>
+        <button type="reset" style="margin-left: 10px;" mat-raised-button color="accent">
+          Reset
+        </button>
       </div>
-      </form>
+
+    </form>
+    
   </div>
-  <ng-template #forminfo>
-    {{ post | json }}
-  </ng-template>
+</div>
+</div>
+</div>

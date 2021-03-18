@@ -20,6 +20,11 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProfileComponent } from './components/profile/profile.component';
+import { LoginService } from './services/login/login.service';
+import { AuthGuard } from './services/auth/auth.guard';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     MainNavComponent,
     HomepageComponent,
     NotfoundComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +51,10 @@ import { LogoutComponent } from './components/logout/logout.component';
     MatFormFieldModule,
     MatToolbarModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [[{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
