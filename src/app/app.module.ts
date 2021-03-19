@@ -22,8 +22,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
-import { LoginService } from './services/login/login.service';
-import { AuthGuard } from './services/auth/auth.guard';
+import {MatCardModule} from '@angular/material/card';
 import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
@@ -52,7 +51,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
     MatToolbarModule,
     MatButtonModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [[{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],
   bootstrap: [AppComponent]
