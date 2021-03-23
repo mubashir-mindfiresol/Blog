@@ -15,11 +15,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SignupComponent } from './components/signup/signup.component';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { LogoutComponent } from './components/logout/logout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
 import {MatCardModule} from '@angular/material/card';
@@ -32,11 +30,9 @@ import { BoardUserComponent } from './components/board-user/board-user.component
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,
     MainNavComponent,
     HomepageComponent,
     NotfoundComponent,
-    LogoutComponent,
     ProfileComponent,
     HomeComponent,
     BoardAdminComponent,
@@ -60,7 +56,7 @@ import { BoardUserComponent } from './components/board-user/board-user.component
     HttpClientModule,
     MatCardModule
   ],
-  providers: [AuthInterceptor],
+  providers: [[{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

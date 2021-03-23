@@ -7,7 +7,7 @@ import { UserService } from '../../services/user/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  content?: string;
+  content: string;
 
   constructor(private userService: UserService) { }
 
