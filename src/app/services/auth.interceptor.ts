@@ -7,20 +7,21 @@ import { Observable } from 'rxjs';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private token: TokenStorageService) { }
+  constructor(private token: TokenStorageService) { 
+    console.log("Within interceptor");
+
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
     let authReq = req;
-    const token = this.token.getToken();
+    let token = this.token.getToken();
+    console.log(this.token);
     if (token != null) {
       authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
     }
     return next.handle(authReq);
   }
 }
-
-export const authInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
-];

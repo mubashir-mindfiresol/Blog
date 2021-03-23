@@ -14,9 +14,7 @@ export class MainNavComponent implements OnInit{
   private roles: string[];
   isLoggedIn = false;
   showAdminBoard = false;
-  showModeratorBoard = false;
   username: string;
-  public loggedIn=false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
