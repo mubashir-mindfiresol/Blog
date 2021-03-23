@@ -16,6 +16,10 @@
   z-index: 1;
 }
 
+mat-icon{
+  margin-right: 5px;
+}
+
 .active{
   color:#0275d8;
   }

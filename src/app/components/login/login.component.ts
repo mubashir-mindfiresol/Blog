@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login/login.service';
-declare var $: any;
-
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { TokenStorageService } from '../../services/token-storage/token-storage.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,14 +8,18 @@ declare var $: any;
 })
 export class LoginComponent implements OnInit {
 
-  credentials={
-    username:'',
-    password:''
-  }
+  form: any = {};
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+  isLoggedIn = false;
+  isLoginFailed = false;
+  roles: string[] = [];
 
-  constructor(private loginService: LoginService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void{
+    
     const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -29,27 +32,48 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
     
-  }
+//SignIn Code
+if (this.tokenStorage.getToken()) {
+  this.isLoggedIn = true;
+  this.roles = this.tokenStorage.getUser().roles;
 
-  onSubmit() {
-    if ((this.credentials.username!='' && this.credentials.password!='') && (this.credentials.username!=null && this.credentials.password!=null)) {
-      console.log("Field are FILLED!!");
-      //token generate
-      this.loginService.generateToken(this.credentials).subscribe(
-        (response:any)=>{
-          //success
-          console.log(response.token);
-
-          this.loginService.loginUser(response.token);
-          window.location.href="/profile"
-        },
-        error=>{
-          //error
-          console.log(error);
-        }
-      );
-    } else {
-      console.log("Fields are Empty!!");
-    }
   }
 }
+
+  onSignUp(): void {
+    this.authService.register(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
+  }
+
+  onSignIn(): void {
+    this.authService.login(this.form).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().roles;
+        window.location.href="/profile"
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+      }
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
+  
+  }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { LoginService } from 'src/app/services/login/login.service';
+import { TokenStorageService } from '../../services/token-storage/token-storage.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -11,7 +11,11 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class MainNavComponent implements OnInit{
 
-
+  private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  username: string;
   public loggedIn=false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -20,14 +24,23 @@ export class MainNavComponent implements OnInit{
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private loginService: LoginService) {}
+  constructor(private breakpointObserver: BreakpointObserver,private tokenStorageService: TokenStorageService) {}
 
   ngOnInit():void{
-    this.loggedIn=this.loginService.isLoggedIn();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      
+      this.username = user.username;
+    }
   }
 
-  logoutUser(){
-    this.loginService.logout();
-    location.reload();
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.href="/login"
   }
 }

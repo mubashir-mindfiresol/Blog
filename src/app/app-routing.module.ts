@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import {HomepageComponent} from './components/homepage/homepage.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { AuthGuard } from './services/auth/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
+import { BoardUserComponent } from './components/board-user/board-user.component';
+import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"/login", pathMatch:"full"},
   {path: 'homepage', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'logout', component: LogoutComponent},
-  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: 'profile', component: ProfileComponent},
+  { path: 'user', component: BoardUserComponent },
+  { path: 'admin', component: BoardAdminComponent },
   {path:"**", component:NotfoundComponent}
 ];
 
