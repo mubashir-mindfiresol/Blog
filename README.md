@@ -11,6 +11,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 (Login Page)
 
+![Login Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/homepage1.PNG)
+
+(HomePage - I)
+
+![Login Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/homepage2.PNG)
+
+(HomePage - I)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
