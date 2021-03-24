@@ -1,23 +1,37 @@
 <div class="bootstrap-wrapper" *ngIf="currentUser; else loggedOut">
     <div class="container text-center mt">
-        <h1>Welcome to User Profile</h1>
-        <h1>User is {{ currentUser.username }}</h1>
-    </div>
-    <p>
-        <strong>Token:</strong>
-        {{ currentUser.accessToken.substring(0, 20) }} ...
-        {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-      </p>
-      <p>
-        <strong>Email:</strong>
-        {{ currentUser.email }}
-      </p>
-      <strong>Roles:</strong>
-      <ul>
-        <li *ngFor="let role of currentUser.roles">
-          {{ role }}
-        </li>
-      </ul>
+      <aside class="profile-card">
+        <header>
+          <!-- here’s the avatar -->
+          <a routerLink="/profile">
+            <img src="../../../assets/images/pic.PNG">
+          </a>
+      
+          <!-- the username -->
+          <h1>
+            {{ currentUser.username }}
+          </h1>
+      
+        </header>
+      
+        <!-- bit of a bio; who are you? -->
+        <div class="profile-bio">
+      
+          <p>
+            <strong>Email: </strong> <em> {{ currentUser.email }}</em>
+          </p>
+          <br>
+            <strong>Roles:</strong>
+            <ol>
+              <li *ngFor="let role of currentUser.roles">
+                {{ role }}
+              </li>
+            </ol>      
+        </div>
+      
+        
+      </aside>
+  </div>
 </div>
 <ng-template #loggedOut>
     Please login.
