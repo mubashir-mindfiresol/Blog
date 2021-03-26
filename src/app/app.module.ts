@@ -25,6 +25,7 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
+import { ImageuploadComponent } from './components/imageupload/imageupload.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BoardUserComponent } from './components/board-user/board-user.component
     ProfileComponent,
     HomeComponent,
     BoardAdminComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    ImageuploadComponent
   ],
   imports: [
     BrowserModule,
