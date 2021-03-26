@@ -1,36 +1,32 @@
 <div class="bootstrap-wrapper" *ngIf="currentUser; else loggedOut">
-    <div class="container text-center mt">
-      <aside class="profile-card">
+    <div class="container text-center mt" style="display: flex;">
+      <div class="profile-card">
         <header>
           <!-- here’s the avatar -->
           <a routerLink="/profile">
             <img src="../../../assets/images/pic.PNG">
           </a>
-      
           <!-- the username -->
           <h1>
             {{ currentUser.username }}
           </h1>
-      
         </header>
-      
         <!-- bit of a bio; who are you? -->
         <div class="profile-bio">
-      
+          <p><strong>Likes: </strong> 42</p>
+          <p><strong>Blogs: </strong> 6</p><br>
           <p>
             <strong>Email: </strong> <em> {{ currentUser.email }}</em>
           </p>
           <br>
             <strong>Roles:</strong>
-            <ol>
-              <li *ngFor="let role of currentUser.roles">
-                {{ role }}
-              </li>
-            </ol>      
+              <span *ngFor="let role of currentUser.roles">
+                <span *ngIf="role == 'ROLE_ADMIN'; then thenBlock else elseBlock"></span>
+                <ng-template #thenBlock>  {{ role }},</ng-template>
+                <ng-template #elseBlock>  {{ role }}</ng-template>
+              </span>  
         </div>
-      
-        
-      </aside>
+      </div>
   </div>
 </div>
 <ng-template #loggedOut>

@@ -1,38 +1,3 @@
-html {
-    height: 100%;
-  }
-  
-  body {
-    overflow: hidden;
-    background: #bcdee7 no-repeat center center fixed;
-    background-size: cover;
-    position: fixed;
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
-    height: 100%;
-    font: normal 14px/1.618em "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  body:before {
-    content: "";
-    height: 0px;
-    padding: 0px;
-    border: 130em solid #313440;
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    z-index: 2;
-    display: block;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
-    animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
-  }
-  
   h1,
   h2 {
     font-weight: 500;
@@ -76,7 +41,7 @@ html {
   .profile-card header {
     width: 179px;
     height: 280px;
-    padding: 40px 20px 30px 20px;
+    padding: 0px 20px 0px 20px;
     display: inline-block;
     border-right: 2px dashed #EEEEEE;
     background: #FFFFFF;
@@ -142,7 +107,6 @@ html {
     padding: 50px 20px 30px 20px;
     background: #FFFFFF;
     color: #333333;
-    margin-top: 50px;
     text-align: center;
     opacity: 0;
     -webkit-animation: moveIn 1s 3.1s ease forwards;
@@ -403,6 +367,7 @@ html {
   @media screen and (min-height: 570px) {
     .profile-card header {
       margin-left: 50px;
+      margin-bottom: -52px;
       padding-bottom: 5px;
       display: block;
       float: none;
@@ -411,7 +376,8 @@ html {
     .profile-card .profile-bio {
       width: auto;
       height: auto;
-      padding: 0px 20px 30px 20px;
+      padding: 0px 24px 30px 20px;
+      margin: 0px;
       display: block;
       float: none;
     }
