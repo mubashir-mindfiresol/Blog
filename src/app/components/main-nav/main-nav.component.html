@@ -12,6 +12,7 @@
       <a *ngIf="isLoggedIn" mat-list-item routerLink="/imageupload" routerLinkActive="active"><mat-icon>fingerprint</mat-icon> Edit Profile</a>
       <a *ngIf="!isLoggedIn" mat-list-item routerLink="/login" routerLinkActive="active"><mat-icon>login</mat-icon> SignIn/SignUp</a>
       <a *ngIf="isLoggedIn" mat-list-item routerLink="/profile" routerLinkActive="active"><mat-icon>fingerprint</mat-icon> {{username}}</a>
+      <a *ngIf="isLoggedIn" mat-list-item routerLink="/newblog" routerLinkActive="active"><mat-icon>book_online</mat-icon> New Blog</a>
       <a *ngIf="isLoggedIn" mat-list-item (click)="logout()"><mat-icon>logout</mat-icon> Logout</a>
     </mat-nav-list>
   </mat-sidenav>

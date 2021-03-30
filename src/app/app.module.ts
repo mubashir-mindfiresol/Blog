@@ -26,6 +26,8 @@ import { HomeComponent } from './components/home/home.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { ImageuploadComponent } from './components/imageupload/imageupload.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { NewblogComponent } from './components/newblog/newblog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { ImageuploadComponent } from './components/imageupload/imageupload.compo
     HomeComponent,
     BoardAdminComponent,
     BoardUserComponent,
-    ImageuploadComponent
+    ImageuploadComponent,
+    NewblogComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { ImageuploadComponent } from './components/imageupload/imageupload.compo
     MatButtonModule,
     MatListModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    CKEditorModule
   ],
   providers: [[{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}]],
   bootstrap: [AppComponent]
