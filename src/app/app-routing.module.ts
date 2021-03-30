@@ -8,6 +8,7 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { ImageuploadComponent } from './components/imageupload/imageupload.component';
+import { NewblogComponent } from './components/newblog/newblog.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"/login", pathMatch:"full"},
@@ -16,8 +17,9 @@ const routes: Routes = [
   {path:'imageupload',component: ImageuploadComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
-  { path: 'user', component: BoardUserComponent },
-  { path: 'admin', component: BoardAdminComponent },
+  {path: 'user', component: BoardUserComponent },
+  {path: 'admin', component: BoardAdminComponent },
+  {path: 'newblog', component: NewblogComponent},
   {path:"**", component:NotfoundComponent}
 ];
 
