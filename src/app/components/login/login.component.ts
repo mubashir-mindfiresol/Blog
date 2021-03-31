@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenStorageService } from '../../services/token-storage/token-storage.service';
+import { ToastrService } from 'ngx-toastr';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +19,7 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private toastr: ToastrService) { }
 
   ngOnInit(): void{
     
@@ -38,6 +41,20 @@ if (this.tokenStorage.getToken()) {
   this.roles = this.tokenStorage.getUser().roles;
 
   }
+
+}
+
+showSuccess() {
+  this.toastr.success('Hello world!', 'Toastr fun!',
+  {timeOut: 2000});;
+  return true;
+}
+showError() {
+this.toastr.error('everything is broken', 'Major Error', {
+timeOut: 3000
+})
+console.log("showerror() is called");
+return false;
 }
 
   onSignUp(): void {
@@ -63,14 +80,20 @@ if (this.tokenStorage.getToken()) {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        this.toastr.success('Logged In Successfully', 'SUCCESS!!', {
+          timeOut: 3000
+          });
         window.location.href="/profile"
       },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        this.toastr.error('Check Credentials', this.errorMessage, {
+          timeOut: 3000
+          })
       }
     );
-  }
+    }
 
   reloadPage(): void {
     window.location.reload();
