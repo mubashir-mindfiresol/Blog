@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~11.2.5",
+    "@angular/animations": "^11.2.7",
     "@angular/cdk": "^11.2.4",
     "@angular/common": "~11.2.5",
     "@angular/compiler": "~11.2.5",
@@ -24,9 +24,13 @@
     "@ckeditor/ckeditor5-angular": "^2.0.1",
     "@ckeditor/ckeditor5-build-classic": "^26.0.0",
     "@ckeditor/ckeditor5-build-decoupled-document": "^27.0.0",
+    "@ckeditor/ckeditor5-ckfinder": "^27.0.0",
+    "@ckeditor/ckeditor5-upload": "^27.0.0",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
+    "ngx-toastr": "^13.2.1",
+    "npm-check-updates": "^11.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

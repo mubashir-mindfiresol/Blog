@@ -78,12 +78,12 @@
 			  </div>
 		
 			  <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-				Signup failed!<br />{{ errorMessage }}
+				Signup failed!<br />
 			  </div>
 			</form>
 		
 			<div class="alert alert-success" *ngIf="isSuccessful">
-			  Your registration is successful!
+				Success!!
 			</div>
 	</div>
 
@@ -159,9 +159,8 @@
 			  </div>
 			</form>
 		
-			<div class="alert alert-success" *ngIf="isLoggedIn">
-			  Logged in as {{ roles }}.
-			</div>
+			<!-- <div *ngIf="isLoggedIn? showSuccess(): false">
+			</div> -->
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
