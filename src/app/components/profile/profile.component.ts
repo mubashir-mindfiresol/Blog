@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-profile',
@@ -10,10 +11,21 @@ export class ProfileComponent implements OnInit {
 
   currentUser: any;
 
-  constructor(private token: TokenStorageService) { }
+  constructor(private token: TokenStorageService,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1500);
     this.currentUser = this.token.getUser();
+  }
+
+  showSpinner() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1500);
   }
 
 }

@@ -11,6 +11,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core'
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -65,7 +66,8 @@ import { NewblogComponent } from './components/newblog/newblog.component';
     CKEditorModule,
     ToastrModule.forRoot({
       positionClass :'toast-top-right'
-    })
+    }),
+    NgxSpinnerModule
   ],
   providers: [[{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}]],
   bootstrap: [AppComponent]
