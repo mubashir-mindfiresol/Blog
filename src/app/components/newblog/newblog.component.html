@@ -20,7 +20,14 @@
         <div class="form-group">
             <legend><span class="number"> </span> Description</legend>
                 <ckeditor name="name" [(ngModel)]="model.editorData" [editor]="Editor"></ckeditor>
-            <input type="submit" value="Submit" />
+            <div class="container">
+                <div class="row">
+                   
+                        <input type="submit" value="Submit" />
+                        <input type="reset" value="Clear" />
+                    
+                </div>
+            </div>
         </div>
     </form>
 </div>
