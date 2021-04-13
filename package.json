@@ -28,6 +28,7 @@
     "@ckeditor/ckeditor5-upload": "^27.0.0",
     "angular-file-uploader": "^7.0.3",
     "angular-font-awesome": "^3.1.2",
+    "angular-froala-wysiwyg": "^3.2.6-1",
     "angularx-social-login": "^3.5.5",
     "bootstrap": "^5.0.0-beta3",
     "font-awesome": "^4.7.0",

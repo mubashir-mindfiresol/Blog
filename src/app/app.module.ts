@@ -28,9 +28,10 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-import { ImageuploadComponent } from './components/imageupload/imageupload.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NewblogComponent } from './components/newblog/newblog.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +44,8 @@ import { NewblogComponent } from './components/newblog/newblog.component';
     HomeComponent,
     BoardAdminComponent,
     BoardUserComponent,
-    ImageuploadComponent,
-    NewblogComponent
+    NewblogComponent,
+    UploadFilesComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,9 @@ import { NewblogComponent } from './components/newblog/newblog.component';
     ToastrModule.forRoot({
       positionClass :'toast-top-right'
     }),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
   ],
   providers: [[{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}]],
   bootstrap: [AppComponent]

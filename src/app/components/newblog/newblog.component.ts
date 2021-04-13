@@ -28,7 +28,7 @@ export class NewblogComponent implements OnInit {
   ngOnInit(): void {
     ClassicEditor
     .create( document.querySelector( '#editor' ), {
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'underline', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
         heading: {
             options: [
                 { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
