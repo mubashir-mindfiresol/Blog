@@ -56,7 +56,7 @@
 	border-radius: 15px 15px 15px 0px;
 }
 
-.form-style-5 input[type="submit"],input[type="reset"]
+.form-style-5 button[type="submit"],button[type="reset"]
 {
 	position: relative;
 	display: block;
@@ -72,7 +72,7 @@
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
 }
-.form-style-5 input[type="submit"]:hover,input[type="reset"]:hover
+.form-style-5 button[type="submit"]:hover,button[type="reset"]:hover
 {
 	background: #109177;
 }

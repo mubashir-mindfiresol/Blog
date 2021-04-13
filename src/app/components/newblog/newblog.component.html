@@ -1,8 +1,8 @@
 <div class="form-style-5 container">
-    <form *ngIf=!submitted (ngSubmit)="onSubmit()">
+    <form *ngIf=!submitted (ngSubmit)="onSubmit()" novalidate>
         <div class="form-group">
             <legend for="inputdefault"><span class="number"> </span> Title</legend>
-            <input class="form-control" id="inputdefault" [(ngModel)]="model.name" type="text" name="name" placeholder="Blog Title">
+            <input class="form-control" id="inputdefault" [(ngModel)]="model.title" type="text" name="name" placeholder="Blog Title">
         </div>
         <div class="form-group">
             <legend><span class="number"> </span> Category</legend>
@@ -29,13 +29,12 @@
         <app-upload-files></app-upload-files>
         <div class="form-group">
             <legend><span class="number"> </span> Description</legend>
-                <ckeditor name="name" [(ngModel)]="model.editorData" [editor]="Editor"></ckeditor>
+                <ckeditor name="name" [(ngModel)]="model.description" [editor]="Editor"></ckeditor>
             <div class="container">
                 <div class="row">
                    
-                        <input type="submit" value="Submit" />
-                        <input type="reset" value="Clear" />
-                    
+                        <button type="submit">Submit</button>
+                        <button type="reset">Clear</button>
                 </div>
             </div>
         </div>
