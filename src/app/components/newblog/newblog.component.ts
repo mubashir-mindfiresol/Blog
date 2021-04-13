@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { NewblogService } from 'src/app/services/newblog/newblog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newblog',
@@ -15,14 +16,13 @@ export class NewblogComponent implements OnInit {
   submitted=false;
   
   public model = {
-    name: '',
-    category:'',
-    editorData:'',
-    dateTime:'',
-    url:{},
+    title: "",
+    category:"",
+    description:"",
+    dateTime:"",
   };
 
-  constructor(private _newblogService: NewblogService) {
+  constructor(private _newblogService: NewblogService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,18 +42,6 @@ export class NewblogComponent implements OnInit {
     } );
   }
 
-  onSelectFile(event: { target: { files: Blob[]; }; }) { // called each time file input changes
-    if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
-
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.model.url = event.target.result;
-      }
-    }
-}
-
   onSubmit() {
 
     this.submitted=true;
@@ -67,10 +55,11 @@ export class NewblogComponent implements OnInit {
     this.model.dateTime = date+' '+time;
 
     //console.log( `Form submit, model: ${ JSON.stringify( this.model ) }` );
-    this._newblogService.enroll(this.model)
+    this._newblogService.createblog(this.model)
     .subscribe(
       data => console.log('Success!',data),
       error => console.error('Error!',error)
     )
+    this.router.navigate(['/homepage']);
   }
 }

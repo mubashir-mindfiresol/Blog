@@ -1,9 +1,8 @@
 export class newblogInterface {
     constructor(
-        public name: string,
+        public title: string,
         public category:string,
-        public editorData:string,
+        public description:string,
         public dateTime:string,
-        public url:{},
     ) {}
 }
