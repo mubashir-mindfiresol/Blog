@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user/user.service';
+import { PostModel } from '../../services/post/post-model';
+import { PostService } from '../../services/post/post.service';
 
 @Component({
   selector: 'app-home',
@@ -7,18 +8,16 @@ import { UserService } from '../../services/user/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  content: string;
 
-  constructor(private userService: UserService) { }
+  posts: Array<PostModel> = [];
+
+  constructor(private postService: PostService) {
+    this.postService.getAllPosts().subscribe(post => {
+      this.posts = post;
+    });
+  }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
   }
+
 }

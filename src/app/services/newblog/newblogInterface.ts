@@ -3,6 +3,6 @@ export class newblogInterface {
         public title: string,
         public category:string,
         public description:string,
-        public dateTime:string,
+        public createDate:string,
     ) {}
 }

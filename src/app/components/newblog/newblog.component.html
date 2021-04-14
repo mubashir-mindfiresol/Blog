@@ -8,32 +8,49 @@
             <legend><span class="number"> </span> Category</legend>
             <select id="job" name="field4" [(ngModel)]="model.category">
                 <optgroup label="Food">
-                    <option value="veg">Veg</option>
-                    <option value="nonveg">Non-Veg</option>
+                    <option value="Veg | Food">Veg</option>
+                    <option value="Non-Veg | Food">Non-Veg</option>
                   </optgroup>
                   <optgroup label="Technology">
-                    <option value="computer">Computer</option>
-                    <option value="mobile">Mobile</option>
-                    <option value="network">Networking</option>
-                    <option value="telecom">Telecom</option>
+                    <option value="Computer | Technology">Computer</option>
+                    <option value="Mobile | Technology">Mobile</option>
+                    <option value="Network | Technology">Networking</option>
+                    <option value="Telecom | Technology">Telecom</option>
                   </optgroup>
                   <optgroup label="Current-Affairs">
-                    <option value="India">India</option>
-                    <option value="worldwide">WorldWide</option>
+                    <option value="India | Current-Affairs">India</option>
+                    <option value="Worldwide | Current-Affairs">WorldWide</option>
                   </optgroup>
                   <optgroup label="Others">
-                    <option value="others">Others</option>
+                    <option value="Miscellaneous">Others</option>
                   </optgroup>
             </select>
         </div>
-        <app-upload-files></app-upload-files>
+        <!-- <app-upload-files></app-upload-files> -->
+        <label>Upload Logo</label>
+                {{imageError}}
+                <div class="custom-file fileInputProfileWrap">
+                    <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+                    <div class="img-space">
+
+                        <ng-container *ngIf="isImageSaved; else elseTemplate">
+                            <img [src]="cardImageBase64" style="height: 400px; width: 300px;" />
+                        </ng-container>
+                        <ng-template #elseTemplate>
+
+                            <img src="../../../assets/images/camera.PNG" class="img-responsive">
+                        </ng-template>
+
+                    </div>
+
+                </div>
         <div class="form-group">
             <legend><span class="number"> </span> Description</legend>
                 <ckeditor name="name" [(ngModel)]="model.description" [editor]="Editor"></ckeditor>
             <div class="container">
                 <div class="row">
                    
-                        <button type="submit">Submit</button>
+                        <button type="submit" (change)="selectFile($event)">Submit</button>
                         <button type="reset">Clear</button>
                 </div>
             </div>

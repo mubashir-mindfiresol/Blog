@@ -30,8 +30,9 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NewblogComponent } from './components/newblog/newblog.component';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
+import { PostTileComponent } from './components/post-tile/post-tile.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { UploadFilesComponent } from './components/upload-files/upload-files.com
     BoardAdminComponent,
     BoardUserComponent,
     NewblogComponent,
-    UploadFilesComponent
+    UploadFilesComponent,
+    PostTileComponent
   ],
   imports: [
     BrowserModule,
@@ -69,8 +71,7 @@ import { UploadFilesComponent } from './components/upload-files/upload-files.com
       positionClass :'toast-top-right'
     }),
     NgxSpinnerModule,
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [[{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}]],
   bootstrap: [AppComponent]
