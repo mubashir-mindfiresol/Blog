@@ -1,0 +1,60 @@
+.container{
+  width: 90%;
+  padding: 10px;
+}
+
+p{
+font-size: 16px;
+}
+.blog-card {
+    background-color: white;
+    border: 1px solid lightgray;
+    margin-bottom: 45px;
+    align-content: center;
+}
+
+mat-icon{
+    margin-right: 10px;
+    font-size: 30px;
+}
+.blog-header-image {
+    background-image: url('../../../assets/images/pic.PNG');
+    background-size: cover;
+}
+
+.comments_section{
+    font-size: 16px;
+    padding-bottom: 8px;
+
+}
+.user_name{
+    font-weight: 600;
+}
+
+.post_text{
+    font-weight: normal;
+}
+
+.post_commentBox{
+    display: flex;
+    margin-top: 10px;
+}
+
+.post_comment{
+    padding: 20px;
+}
+
+.post_input{
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+.post_button{
+    flex: 0;
+    border: none;
+    color: #6082a3;
+    background-color: transparent;
+    border-top: 1px solid lightgray;
+}
