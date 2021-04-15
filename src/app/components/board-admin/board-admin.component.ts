@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../../services/user/user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from '../../services/user/user.service';
 export class BoardAdminComponent implements OnInit {
   content: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.userService.getAdminBoard().subscribe(
@@ -22,5 +23,9 @@ export class BoardAdminComponent implements OnInit {
         console.log("Error");
       }
     );
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1500);
   }
 }

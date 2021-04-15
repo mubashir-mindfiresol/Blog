@@ -15,7 +15,7 @@ export class PostService {
   }
 
   createPost(postPayload: newblogInterface): Observable<any> {
-    return this.http.post('http://localhost:8080/api/blogs/', postPayload);
+    return this.http.post('http://localhost:8080/api/blogs/createblog', postPayload);
   }
 
   getPost(id: number): Observable<PostModel> {
