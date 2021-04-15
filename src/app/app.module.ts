@@ -12,7 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core'
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +33,7 @@ import { NewblogComponent } from './components/newblog/newblog.component';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { PostTileComponent } from './components/post-tile/post-tile.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ViewPostComponent } from './components/view-post/view-post.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BoardUserComponent,
     NewblogComponent,
     UploadFilesComponent,
-    PostTileComponent
+    PostTileComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       positionClass :'toast-top-right'
     }),
     NgxSpinnerModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxPaginationModule
   ],
   providers: [[{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}]],
   bootstrap: [AppComponent]

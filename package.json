@@ -35,6 +35,7 @@
     "angularx-social-login": "^3.5.5",
     "bootstrap": "^5.0.0-beta3",
     "font-awesome": "^4.7.0",
+    "ngx-pagination": "^5.0.0",
     "ngx-spinner": "^11.0.1",
     "ngx-toastr": "^13.2.1",
     "npm-check-updates": "^11.3.0",

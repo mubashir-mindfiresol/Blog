@@ -1,6 +1,6 @@
 <div class="container">
     <!-- avatar + username -->
-    <mat-card class="blog-card" *ngFor="let blog of blogs">
+    <mat-card class="blog-card" *ngFor="let blog of blogs | paginate: { itemsPerPage: 10, currentPage: p }">
         <mat-card-header>
             <div mat-card-avatar class="blog-header-image"></div>
             <mat-card-title>{{blog.name}}</mat-card-title>
@@ -51,5 +51,5 @@
         </form>
     </mat-card>
 
-    <h4 class="post_text"><strong>Hello there</strong></h4>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 import { UploadFileService } from 'src/app/services/upload-file/upload-file.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-newblog',
@@ -40,10 +41,14 @@ export class NewblogComponent implements OnInit {
     url:""
   };
 
-  constructor(private _newblogService: NewblogService, private router: Router, private uploadService: UploadFileService) {
+  constructor(private spinner: NgxSpinnerService, private _newblogService: NewblogService, private router: Router, private uploadService: UploadFileService) {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+  setTimeout(() => {
+    this.spinner.hide();
+  }, 1500);
     this.fileInfos = this.uploadService.getFiles();
 
     ClassicEditor
@@ -100,7 +105,14 @@ export class NewblogComponent implements OnInit {
       data => console.log('Success!',data),
       error => console.error('Error!',error)
     )
-    this.router.navigate(['/home']);
+    this.spinner.show();
+    setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 1500);
+    setTimeout(() => {
+      this.router.navigate(['home']);
+  }, 1500);
   }
 
   //Image-preview

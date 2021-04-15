@@ -9,12 +9,14 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { HomeComponent } from './components/home/home.component';
 import { NewblogComponent } from './components/newblog/newblog.component';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
+import { ViewPostComponent } from './components/view-post/view-post.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"/login", pathMatch:"full"},
   {path: 'homepage', component: HomepageComponent},
-  {path:'home', component: HomeComponent},
-  {path:'upload-file',component: UploadFilesComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'upload-file',component: UploadFilesComponent},
+  {path: 'view-post/:id', component: ViewPostComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'user', component: BoardUserComponent },

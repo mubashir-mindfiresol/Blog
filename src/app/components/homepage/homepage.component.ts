@@ -9,7 +9,7 @@ import { BLOGS } from './mock-blog';
 })
 export class HomepageComponent implements OnInit {
 
-
+  p: number = 1;
   blogs = BLOGS;
 
   constructor() { }

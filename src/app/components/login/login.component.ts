@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenStorageService } from '../../services/token-storage/token-storage.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private toastr: ToastrService) { }
+  constructor(private authService: AuthService, private spinner: NgxSpinnerService, private tokenStorage: TokenStorageService, private toastr: ToastrService) { }
 
   ngOnInit(): void{
     
@@ -41,7 +42,10 @@ if (this.tokenStorage.getToken()) {
   this.roles = this.tokenStorage.getUser().roles;
 
   }
-
+  this.spinner.show();
+  setTimeout(() => {
+    this.spinner.hide();
+  }, 1500);
 }
 
 showSuccess() {

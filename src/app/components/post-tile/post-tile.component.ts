@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { PostModel } from '../../services/post/post-model';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post-tile',
@@ -13,8 +14,9 @@ export class PostTileComponent implements OnInit {
 
   faComments = faComments;
   @Input() posts: PostModel[];
+  p: number = 1;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }
@@ -22,4 +24,7 @@ export class PostTileComponent implements OnInit {
   goToPost(id: number): void {
     this.router.navigateByUrl('/view-post/' + id);
   }
+
+
+
 }
