@@ -2,6 +2,11 @@
   width: 90%;
   padding: 10px;
 }
+
+mat-icon{
+  cursor: pointer;
+}
+
 .ngx-pagination {
     padding-left: 0px !important;
     font-size: 16px;

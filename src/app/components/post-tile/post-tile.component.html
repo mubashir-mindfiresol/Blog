@@ -9,36 +9,37 @@
     </mat-card-header>
     <hr>
     <h2>{{post.title}}</h2>
-    <img style="padding: 0 15px;" mat-card-image src="{{post.url}}" alt="blog_image">
+    <img style="padding: 0 15px;" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="blog_image">
     <mat-card-content>
         <p class="post-text" [innerHtml]="post.description"></p>
     </mat-card-content>
     <hr>
-    <!-- <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions> -->
-        <div class="icons">
-            
-            <!--<input id="toggle-heart" type="checkbox"/>
-            <label for="toggle-heart">❤</label>
-            -->
-            <mat-icon style="color: red">favorite_border</mat-icon>
-            <mat-icon style="color: rgb(7, 152, 248)">comment</mat-icon>
-            <mat-icon style="color: rgb(43, 196, 43)">share</mat-icon>
-        </div>
-        <hr>
-      
-      <span>
-        <a class="btnCommments" role="button">
-          <fa-icon [icon]="faComments"></fa-icon>
-          Comments({{post.commentCount}})
-        </a>
-        <button class="login" (click)="goToPost(post.id)">
-          Read Post
-        </button>
-      </span>
-      <ngx-spinner></ngx-spinner>
+      <div class="icons">
+          <mat-icon style="color: red">favorite_border</mat-icon>
+          <mat-icon style="color: rgb(7, 152, 248)">comment</mat-icon>
+          <mat-icon style="color: rgb(43, 196, 43)">share</mat-icon>
+      </div>
+    <hr>  
+    <span>
+      <a class="btnCommments" role="button">
+        <fa-icon [icon]="faComments"></fa-icon>
+        Comments({{post.commentCount}})
+      </a>
+      <button class="login" (click)="goToPost(post.id)">
+        Read Post
+      </button>
+    </span>
+    <ngx-spinner></ngx-spinner>
 </mat-card>
 </div>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls 
+  (pageChange)="onPageChange($event)"
+  directionLinks="true"
+  autoHide="true"
+  responsive="true"
+  previousLabel="Previous"
+  nextLabel="Next"
+  screenReaderPaginationLabel="Pagination"
+  screenReaderPageLabel="page"
+  screenReaderCurrentLabel="You're on page">
+</pagination-controls>

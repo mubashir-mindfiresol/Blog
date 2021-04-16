@@ -49,7 +49,7 @@ import { ViewPostComponent } from './components/view-post/view-post.component';
     NewblogComponent,
     UploadFilesComponent,
     PostTileComponent,
-    ViewPostComponent
+    ViewPostComponent,
   ],
   imports: [
     BrowserModule,
