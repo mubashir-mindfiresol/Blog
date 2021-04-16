@@ -6,14 +6,14 @@
           <div class="col-md-11">
             <span>
               <span class="subreddit-text"><a class="post-url" href="">{{post.title}}</a></span>
-              <span> . Posted
+              <span> | Posted
                 <span> {{post.createDate}} </span>
                 by              
                 <a class="username" href="">{{post.username}}</a>
               </span>
             </span>
             <hr />
-            <a routerLink="post.url" class="post-title">{{post.title}}</a>
+            <a routerLink="{{post.url}}" class="post-title">{{post.title}}</a>
             <div>
               <p class="post-text" [innerHtml]="post.description"></p>
             </div>
@@ -28,7 +28,7 @@
             <div style="margin-top: 60px;" *ngFor="let comment of comments">
               <div class="comment">
                 <div class="username">
-                  <a routerLink="/user/comment.username">{{comment.userName}}</a>
+                  <a routerLink="/user/comment.username">{{comment.username}}</a>
                 </div>
                 <div>
                   <p>{{comment.duration}}</p>
