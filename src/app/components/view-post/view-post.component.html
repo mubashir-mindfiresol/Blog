@@ -1,44 +1,50 @@
 <div class="container">
-    <div class="row">
-      <hr />
-      <div class="col-md-9">
+      <div class="col-md-12">
         <div class="row post">
-          <div class="col-md-11">
             <span>
-              <span class="subreddit-text"><a class="post-url" href="">{{post?.title}}</a></span>
               <span> | Posted
                 <span> {{post?.createDate}} </span>
                 by              
                 <a class="username" href="">{{post?.username}}</a>
               </span>
             </span>
-            <hr />
+        </div>
+        <hr>
+        </div>
+        <div class="col-md-12 title">
+            <div class="row">
             <a routerLink="post.url" class="post-title">{{post?.title}}</a>
             <div>
               <p class="post-text" [innerHtml]="post?.description"></p>
             </div>
-            <div class="post-comment">
-              <form [formGroup]="commentForm" (ngSubmit)="postComment()">
-                <div class="form-group">
-                  <textarea class="form-control" [formControlName]="'comment'" placeholder="Add Comment.."></textarea>
-                </div>
-                <button type="submit" class="login float-right">Comment</button>
-              </form>
             </div>
-            <div style="margin-top: 60px;" *ngFor="let comment of comments">
-              <div class="comment">
-                <div class="username">
-                  <a routerLink="/user/comment.username">{{comment.username}}</a>
-                </div>
-                <div>
-                  <p>{{comment.createDate}}</p>
-                </div>
-                <b>{{comment.comment}}</b>
-              </div>
-              <hr />
+            <hr>
+          </div>
+            
+            <div class="col-md-12">
+            <div class="row">
+                  <mat-icon style="color: red">favorite_border</mat-icon>
+                  <mat-icon style="color: rgb(7, 152, 248)">comment</mat-icon>
+                  <mat-icon style="color: rgb(43, 196, 43)">share</mat-icon>
+            </div>
+            <hr> 
+          </div>
+            
+            <div class="col-md-12">
+            <div class="row">
+            <div class="comments_section" *ngFor="let comment of comments">
+              <span class="user_name"><a routerLink="/user/comment.username">{{comment.username}}</a></span> {{comment.comment}}<br>
+            </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+            <div class="col-md-12">
+            <div class="row">
+              <form class="post_commentBox" [formGroup]="commentForm" (ngSubmit)="postComment()">
+                <div class="form-group">
+                  <input [(ngModel)]="btn_disable" name="comment" class="post_input form-control" autocomplete="off" type="text" placeholder="Add a comment..." [formControlName]="'comment'">
+                </div>
+                <button class="post_button" type="submit"  [disabled]="!btn_disable">Post</button>
+              </form>
+            </div>
+          </div>
   </div>
