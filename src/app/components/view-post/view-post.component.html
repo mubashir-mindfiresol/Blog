@@ -20,7 +20,7 @@
             <div class="post-comment">
               <form [formGroup]="commentForm" (ngSubmit)="postComment()">
                 <div class="form-group">
-                  <textarea class="form-control" [formControlName]="'text'" placeholder="Add Comment.."></textarea>
+                  <textarea class="form-control" [formControlName]="'comment'" placeholder="Add Comment.."></textarea>
                 </div>
                 <button type="submit" class="login float-right">Comment</button>
               </form>
@@ -31,9 +31,9 @@
                   <a routerLink="/user/comment.username">{{comment.username}}</a>
                 </div>
                 <div>
-                  <p>{{comment.duration}}</p>
+                  <p>{{comment.createDate}}</p>
                 </div>
-                <b>{{comment.text}}</b>
+                <b>{{comment.comment}}</b>
               </div>
               <hr />
             </div>

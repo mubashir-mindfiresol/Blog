@@ -1,6 +1,6 @@
 export class CommentPayload{
-    text: string;
-    postId: string;
+    comment: string;
+    blogId: string;
     username?:string;
     duration?: string;
 }
