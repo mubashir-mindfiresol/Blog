@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostModel } from 'src/app/services/post/post-model';
@@ -13,8 +13,9 @@ import { CommentService } from 'src/app/services/comment/comment.service';
   styleUrls: ['./view-post.component.css']
 })
 export class ViewPostComponent implements OnInit {
+  @Input() posts: PostModel[];
 
-  postId: number;
+  postId: string;
   post: PostModel;
   commentForm: FormGroup;
   commentPayload: CommentPayload;
@@ -22,6 +23,7 @@ export class ViewPostComponent implements OnInit {
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute,
     private commentService: CommentService, private router: Router) {
+
     this.postId = this.activateRoute.snapshot.params.id;
 
     this.commentForm = new FormGroup({
@@ -40,6 +42,7 @@ export class ViewPostComponent implements OnInit {
 
   postComment() {
     this.commentPayload.text = this.commentForm.get('text').value;
+    this.commentPayload.postId= this.postId;
     this.commentService.postComment(this.commentPayload).subscribe(data => {
       this.commentForm.get('text').setValue('');
       this.getCommentsForPost();
@@ -59,9 +62,10 @@ export class ViewPostComponent implements OnInit {
   private getCommentsForPost() {
     this.commentService.getAllCommentsForPost(this.postId).subscribe(data => {
       this.comments = data;
+      console.log(data);
     }, error => {
       throwError(error);
+      console.log("Inside Error comment");
     });
   }
-
 }

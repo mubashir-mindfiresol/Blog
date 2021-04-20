@@ -14,6 +14,7 @@ export class PostTileComponent implements OnInit {
   faComments = faComments;
   @Input() posts: PostModel[];
   p: number = 1;
+  post: any = {};
 
   constructor(private router: Router) { }
 
