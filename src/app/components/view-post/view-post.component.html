@@ -5,22 +5,22 @@
         <div class="row post">
           <div class="col-md-11">
             <span>
-              <span class="subreddit-text"><a class="post-url" href="">{{post.title}}</a></span>
+              <span class="subreddit-text"><a class="post-url" href="">{{post?.title}}</a></span>
               <span> | Posted
-                <span> {{post.createDate}} </span>
+                <span> {{post?.createDate}} </span>
                 by              
-                <a class="username" href="">{{post.username}}</a>
+                <a class="username" href="">{{post?.username}}</a>
               </span>
             </span>
             <hr />
-            <a routerLink="{{post.url}}" class="post-title">{{post.title}}</a>
+            <a routerLink="post.url" class="post-title">{{post?.title}}</a>
             <div>
-              <p class="post-text" [innerHtml]="post.description"></p>
+              <p class="post-text" [innerHtml]="post?.description"></p>
             </div>
             <div class="post-comment">
               <form [formGroup]="commentForm" (ngSubmit)="postComment()">
                 <div class="form-group">
-                  <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+                  <textarea class="form-control" [formControlName]="'text'" placeholder="Add Comment.."></textarea>
                 </div>
                 <button type="submit" class="login float-right">Comment</button>
               </form>
