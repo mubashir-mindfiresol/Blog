@@ -29,6 +29,4 @@ export class PostTileComponent implements OnInit {
   onPageChange(page) {
     this.p = page;
  }
-
-
 }

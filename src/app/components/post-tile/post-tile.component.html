@@ -12,19 +12,8 @@
     <img style="padding: 0 15px;" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="blog_image">
     <mat-card-content>
         <p class="post-text" [innerHtml]="post.description"></p>
-    </mat-card-content>
-    <hr>
-      <div class="icons">
-          <mat-icon style="color: red">favorite_border</mat-icon>
-          <mat-icon style="color: rgb(7, 152, 248)">comment</mat-icon>
-          <mat-icon style="color: rgb(43, 196, 43)">share</mat-icon>
-      </div>
-    <hr>  
+    </mat-card-content> 
     <span>
-      <a class="btnCommments" role="button">
-        <fa-icon [icon]="faComments"></fa-icon>
-        Comments({{post.commentCount}})
-      </a>
       <button class="login" (click)="goToPost(post.id)">
         Read Post
       </button>

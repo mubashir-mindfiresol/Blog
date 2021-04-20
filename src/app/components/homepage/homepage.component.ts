@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Blog} from './blog';
 import { BLOGS } from './mock-blog';
 
 @Component({

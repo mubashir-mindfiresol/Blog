@@ -1,50 +1,71 @@
-.post-title {
-    font-size: 28px;
-    font-weight: bold;
-    opacity: 1;
+.container{
+  width: 90%;
+  padding: 10px;
+}
+
+p{
+  font-size: 16px;
+}
+.blog-card {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 20px 200px 20px 200px;
+    margin-bottom: 45px;
+    align-content: center;
   }
-  
-  .post-title:hover {
-    opacity: 0.6;
+
+  mat-icon{
+    margin-right: 10px;
+    font-size: 30px;
+    cursor: pointer;
   }
-  
-  .subreddit-text {
-    font-weight: bold;
+
+  .title{
+    font-size: 24px;
   }
-  
-  .post-url {
-    color: black;
+
+  .blog-header-image {
+    background-image: url('../../../assets/images/pic.PNG');
+    background-size: cover;
   }
-  
-  .username{
-      color: gray;
+
+  .comments_section{
+    font-size: 16px;
+    padding-bottom: 8px;
+    width: 100%;
   }
-  
-  .post-text{
-      margin-top: 10px;
+  .user_name{
+    font-weight: 600;
   }
-  
-  .post{
-      --post-line-color: #ccc;    
-      border: 1px solid #ccc;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      overflow: hidden;
-      background-color: rgba(255,255,255,0.8);
-      color: #878A8C;
-      position: relative;
-      border-radius: 4px;
-      padding:5px;
-  }
-  
-  .comment{    
-      --post-line-color: #ccc;    
-      border: 1px solid #ccc;    
-      margin-bottom: 10px;
-      overflow: hidden;
-      background-color: rgba(255,255,255,0.8);
-      color: #878A8C;
-      position: relative;
-      border-radius: 4px;
-      padding:5px;
-  }
+
+.post_text{
+    font-weight: normal;
+}
+
+.post_commentBox{
+    display: flex;
+    font-size: 14px;
+}
+
+.post_comment{
+    padding: 20px;
+}
+
+.post_input{
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+.post_button{
+  flex: 0;
+  border: none;
+  color: #6082a3;
+  background-color: transparent;
+  border-top: 1px solid lightgray;
+}
+
+input[type="text"] {
+  width: 500px;
+}

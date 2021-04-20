@@ -3,8 +3,18 @@
   padding: 10px;
 }
 
-mat-icon{
+button {
+  background-color: #4c5eaf;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
+  border-radius: 8px;
 }
 
 .ngx-pagination {
@@ -49,41 +59,4 @@ mat-icon{
 .blog-header-image {
     background-image: url('../../../assets/images/pic.PNG');
     background-size: cover;
-}
-
-.comments_section{
-    font-size: 16px;
-    padding-bottom: 8px;
-
-}
-.user_name{
-    font-weight: 600;
-}
-
-.post_text{
-    font-weight: normal;
-}
-
-.post_commentBox{
-    display: flex;
-    margin-top: 10px;
-}
-
-.post_comment{
-    padding: 20px;
-}
-
-.post_input{
-    flex: 1;
-    border: none;
-    padding: 10px;
-    border: 1px solid lightgray;
-}
-
-.post_button{
-    flex: 0;
-    border: none;
-    color: #6082a3;
-    background-color: transparent;
-    border-top: 1px solid lightgray;
 }
