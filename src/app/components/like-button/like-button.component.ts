@@ -33,7 +33,14 @@ export class LikeButtonComponent implements OnInit {
   }
 
   likePost() {
-    this.isActive=true;
+    console.log(this.temp);
+    if(this.temp>this.post.likeCount)
+    {
+      this.isActive=true;
+    }
+    else{
+      this.isActive=false;
+    }
     this.likePayload.like = 1;
     this.like();
     if(this.isActive){
@@ -56,6 +63,7 @@ export class LikeButtonComponent implements OnInit {
   }
 
   private updateLikeDetails() {
+    this.temp=this.post?.likeCount;
     this.postService.getPost(this.post.id).subscribe(blog => {
       this.post = blog;
     });
