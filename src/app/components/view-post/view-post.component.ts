@@ -25,7 +25,6 @@ export class ViewPostComponent implements OnInit {
   comments: CommentPayload[];
   commentText:string;
   btn_disable:string;
-  isActive:boolean=false;
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute,
     private commentService: CommentService, private router: Router, private toastr: ToastrService) {
@@ -81,7 +80,4 @@ export class ViewPostComponent implements OnInit {
     });
   }
 
-  onClick() {
-    this.isActive = !this.isActive;
-  }
 }

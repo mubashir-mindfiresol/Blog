@@ -21,10 +21,7 @@
       <hr>
   </div>
   <div class="col-md-12">
-    <div class="row noselect">
-          <mat-icon (click)="onClick()" style="color: red">{{ isActive ? 'favorite' : 'favorite_border'}}</mat-icon>
-          <mat-icon style="color: rgb(43, 196, 43)">share</mat-icon>
-    </div>
+    <app-like-button [post]="post"></app-like-button>
     <hr>
   </div>
   <div class="col-md-12">
