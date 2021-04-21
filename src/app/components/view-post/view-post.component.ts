@@ -13,7 +13,9 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './view-post.component.html',
   styleUrls: ['./view-post.component.css']
 })
+
 export class ViewPostComponent implements OnInit {
+
   @Input() posts: PostModel[];
 
   blogId: string;
@@ -23,6 +25,7 @@ export class ViewPostComponent implements OnInit {
   comments: CommentPayload[];
   commentText:string;
   btn_disable:string;
+  isActive:boolean=false;
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute,
     private commentService: CommentService, private router: Router, private toastr: ToastrService) {
@@ -40,6 +43,12 @@ export class ViewPostComponent implements OnInit {
   ngOnInit(): void {
     this.getPostById();
     this.getCommentsForPost();
+    if (!localStorage.getItem('foo')) { 
+      localStorage.setItem('foo', 'no reload') 
+      location.reload() 
+    } else {
+      localStorage.removeItem('foo') 
+    }
   }
 
   postComment() {
@@ -48,6 +57,7 @@ export class ViewPostComponent implements OnInit {
     this.commentService.postComment(this.commentPayload).subscribe(data => {
       this.commentForm.get('comment').setValue('');
       this.getCommentsForPost();
+      this.toastr.info("Comment Added!!","Success")
     }, error => {
       throwError(error);
     })
@@ -64,10 +74,14 @@ export class ViewPostComponent implements OnInit {
   private getCommentsForPost() {
     this.commentService.getAllCommentsForPost(this.blogId).subscribe(data => {
       this.comments = data;
+      
       console.log(data);
     }, error => {
       throwError(error);
-      console.log("Inside Error comment");
     });
+  }
+
+  onClick() {
+    this.isActive = !this.isActive;
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { PostModel } from '../../services/post/post-model';
-import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class PostTileComponent implements OnInit {
 
-  faComments = faComments;
   @Input() posts: PostModel[];
   p: number = 1;
   post: any = {};
