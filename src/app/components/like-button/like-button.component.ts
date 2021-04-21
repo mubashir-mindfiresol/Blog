@@ -17,11 +17,12 @@ export class LikeButtonComponent implements OnInit {
   likePayload: LikePayload;
   upvoteColor: string;
   isActive:boolean;
-  temp:number=0;
+  temp:number;
 
   constructor(private likeService: LikeService,
     private postService: PostService, private toastr: ToastrService) {
-      
+     
+
     this.likePayload = {
       like: undefined,
       blogId: undefined
@@ -29,27 +30,29 @@ export class LikeButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.temp=this.post.likeCount;
     this.updateLikeDetails();
   }
 
   likePost() {
-    console.log(this.temp);
-    if(this.temp>this.post.likeCount)
-    {
-      this.isActive=true;
-    }
-    else{
-      this.isActive=false;
-    }
+    //console.log(this.temp);
+    // if(this.temp>this.post.likeCount)
+    // {
+    //   this.isActive=true;
+    // }
+    // else{
+    //   this.isActive=false;
+    // }
     this.likePayload.like = 1;
     this.like();
-    if(this.isActive){
-      this.toastr.success("👍","You liked the blog");
-    }
-    else{
-      this.toastr.warning("👎","You unliked the blog");
-    }
-    console.log(this.post.likeCount);
+    // if(this.isActive){
+    //   this.toastr.success("👍","You liked the blog");
+    // }
+    // else{
+    //   this.toastr.warning("👎","You unliked the blog");
+    // }
+    //console.log(this.post.likeCount);
+    //console.log(this.likeService);
   }
 
   private like() {
@@ -63,7 +66,6 @@ export class LikeButtonComponent implements OnInit {
   }
 
   private updateLikeDetails() {
-    this.temp=this.post?.likeCount;
     this.postService.getPost(this.post.id).subscribe(blog => {
       this.post = blog;
     });
