@@ -1,50 +1,47 @@
 <div class="container">
-      <div class="col-md-12">
-        <div class="row post">
-            <span>
-              <span> | Posted
-                <span> {{post?.createDate}} </span>
-                by              
-                <a class="username" href="">{{post?.username}}</a>
-              </span>
-            </span>
-        </div>
-        <hr>
-        </div>
-        <div class="col-md-12 title">
-            <div class="row">
-            <a routerLink="post.url" class="post-title">{{post?.title}}</a>
-            <div>
-              <p class="post-text" [innerHtml]="post?.description"></p>
-            </div>
-            </div>
-            <hr>
-          </div>
-            
-            <div class="col-md-12">
-            <div class="row">
-                  <mat-icon style="color: red">favorite_border</mat-icon>
-                  <mat-icon style="color: rgb(7, 152, 248)">comment</mat-icon>
-                  <mat-icon style="color: rgb(43, 196, 43)">share</mat-icon>
-            </div>
-            <hr> 
-          </div>
-            
-            <div class="col-md-12">
-            <div class="row">
-            <div class="comments_section" *ngFor="let comment of comments">
-              <span class="user_name"><a routerLink="/user/comment.username">{{comment.username}}</a></span> {{comment.comment}}<br>
-            </div>
-            </div>
-          </div>
-            <div class="col-md-12">
-            <div class="row">
-              <form class="post_commentBox" [formGroup]="commentForm" (ngSubmit)="postComment()">
-                <div class="form-group">
-                  <input [(ngModel)]="btn_disable" name="comment" class="post_input form-control" autocomplete="off" type="text" placeholder="Add a comment..." [formControlName]="'comment'">
-                </div>
-                <button class="post_button" type="submit"  [disabled]="!btn_disable">Post</button>
-              </form>
-            </div>
-          </div>
+  <div class="col-md-12">
+    <div class="row post">
+        <span>
+          <span> | Posted
+            <span> {{post?.createDate}} </span>
+            by
+            <a class="username" href="">{{post?.username}}</a>
+          </span>
+        </span>
+    </div>
+    <hr>
   </div>
+  <div class="col-md-12 title">
+      <div class="row">
+        <a routerLink="post.url" class="post-title">{{post?.title}}</a>
+        <div>
+          <p class="post-text" [innerHtml]="post?.description"></p>
+        </div>
+      </div>
+      <hr>
+  </div>
+  <div class="col-md-12">
+    <div class="row noselect">
+          <mat-icon (click)="onClick()" style="color: red">{{ isActive ? 'favorite' : 'favorite_border'}}</mat-icon>
+          <mat-icon style="color: rgb(43, 196, 43)">share</mat-icon>
+    </div>
+    <hr>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="comments_section" *ngFor="let comment of comments">
+        <span class="user_name"><a routerLink="/user/comment.username">{{comment.username}}</a></span> {{comment.comment}}<br>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <form class="post_commentBox" [formGroup]="commentForm" (ngSubmit)="postComment()">
+        <div class="form-group">
+          <input [(ngModel)]="btn_disable" name="comment" class="post_input form-control" autocomplete="off" type="text" placeholder="Add a comment..." [formControlName]="'comment'">
+        </div>
+        <button class="post_button" type="submit"  [disabled]="!btn_disable">Post</button>
+      </form>
+    </div>
+  </div>
+</div>

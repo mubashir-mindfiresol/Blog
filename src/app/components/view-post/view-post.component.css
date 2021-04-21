@@ -7,36 +7,36 @@ p{
   font-size: 16px;
 }
 .blog-card {
-    background-color: white;
-    border: 1px solid lightgray;
-    padding: 20px 200px 20px 200px;
-    margin-bottom: 45px;
-    align-content: center;
-  }
+  background-color: white;
+  border: 1px solid lightgray;
+  padding: 20px 200px 20px 200px;
+  margin-bottom: 45px;
+  align-content: center;
+}
 
-  mat-icon{
-    margin-right: 10px;
-    font-size: 30px;
-    cursor: pointer;
-  }
+mat-icon{
+  margin-right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
 
-  .title{
-    font-size: 24px;
-  }
+.title{
+  font-size: 24px;
+}
 
-  .blog-header-image {
-    background-image: url('../../../assets/images/pic.PNG');
-    background-size: cover;
-  }
+.blog-header-image {
+  background-image: url('../../../assets/images/pic.PNG');
+  background-size: cover;
+}
 
-  .comments_section{
-    font-size: 16px;
-    padding-bottom: 8px;
-    width: 100%;
-  }
-  .user_name{
-    font-weight: 600;
-  }
+.comments_section{
+  font-size: 16px;
+  padding-bottom: 8px;
+  width: 100%;
+}
+.user_name{
+  font-weight: 600;
+}
 
 .post_text{
     font-weight: normal;
@@ -53,19 +53,39 @@ p{
 
 .post_input{
   flex: 1;
-  border: none;
   padding: 10px;
   border: 1px solid lightgray;
+  font-size: 16px;
+}
+
+.post_button:disabled{
+  flex: 0;
+  font-size: 16px;
+  border-radius: 7px;
+  height: 35px;
+  color: gray;
+  background-color: transparent;
 }
 
 .post_button{
+  font-size: 16px;
   flex: 0;
-  border: none;
-  color: #6082a3;
-  background-color: transparent;
-  border-top: 1px solid lightgray;
+  height: 35px;
+  color: aliceblue;
+  background-color: rgba(33, 128, 223, 0.719);
+  border-radius: 7px;
 }
 
 input[type="text"] {
   width: 500px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
