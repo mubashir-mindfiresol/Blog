@@ -1,9 +1,10 @@
 export class PostModel {
-    id: string;
+    id?: string;
     title: string;
     category:string;
     description: string;
     createDate:string;
     url: string;
     username: string;
+    likeCount:number;
 }

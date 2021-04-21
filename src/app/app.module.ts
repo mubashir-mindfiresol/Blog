@@ -33,6 +33,7 @@ import { NewblogComponent } from './components/newblog/newblog.component';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { PostTileComponent } from './components/post-tile/post-tile.component';
 import { ViewPostComponent } from './components/view-post/view-post.component';
+import { LikeButtonComponent } from './components/like-button/like-button.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ViewPostComponent } from './components/view-post/view-post.component';
     UploadFilesComponent,
     PostTileComponent,
     ViewPostComponent,
+    LikeButtonComponent,
   ],
   imports: [
     BrowserModule,
