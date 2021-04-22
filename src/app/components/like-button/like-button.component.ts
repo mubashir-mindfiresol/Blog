@@ -30,7 +30,7 @@ export class LikeButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.temp=this.post.likeCount;
+    this.temp=this.post?.likeCount;
     this.updateLikeDetails();
   }
 
@@ -66,7 +66,7 @@ export class LikeButtonComponent implements OnInit {
   }
 
   private updateLikeDetails() {
-    this.postService.getPost(this.post.id).subscribe(blog => {
+    this.postService.getPost(this.post?.id, JSON.parse(window.sessionStorage.getItem('auth-user')).username).subscribe(blog => {
       this.post = blog;
     });
   }

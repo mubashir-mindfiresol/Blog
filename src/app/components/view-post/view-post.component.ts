@@ -18,6 +18,7 @@ export class ViewPostComponent implements OnInit {
 
   @Input() posts: PostModel[];
 
+  username:string;
   blogId: string;
   post: PostModel;
   commentForm: FormGroup;
@@ -27,7 +28,7 @@ export class ViewPostComponent implements OnInit {
   btn_disable:string;
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute,
-    private commentService: CommentService, private router: Router, private toastr: ToastrService) {
+    private commentService: CommentService, private toastr: ToastrService) {
 
     this.blogId = this.activateRoute.snapshot.params.id;
     this.commentForm = new FormGroup({
@@ -48,6 +49,7 @@ export class ViewPostComponent implements OnInit {
     } else {
       localStorage.removeItem('foo') 
     }
+    console.log(JSON.parse(window.sessionStorage.getItem('auth-user')).username);
   }
 
   postComment() {
@@ -63,7 +65,7 @@ export class ViewPostComponent implements OnInit {
   }
 
   private getPostById() {
-    this.postService.getPost(this.blogId).subscribe(data => {
+    this.postService.getPost(this.blogId, JSON.parse(window.sessionStorage.getItem('auth-user')).username).subscribe(data => {
       this.post = data;
     }, error => {
       throwError(error);
