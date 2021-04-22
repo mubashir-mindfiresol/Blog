@@ -21,7 +21,7 @@ export class PostTileComponent implements OnInit {
   }
 
   goToPost(id: number): void {
-    this.router.navigateByUrl('/view-post/' + id);
+    this.router.navigateByUrl('/view-post/'+JSON.parse(window.sessionStorage.getItem('auth-user')).username+'/' + id);
   }
 
   onPageChange(page) {
