@@ -13,4 +13,8 @@ export class LikeService {
   like(likePayload: LikePayload): Observable<any> {
     return this.http.post('http://localhost:8080/api/like/likeblog', likePayload);
   }
+
+  liked(blogId: string): Observable<boolean> {
+    return this.http.get<boolean>('http://localhost:8080/api/like/likeblog/' + blogId);
+  }
 }
