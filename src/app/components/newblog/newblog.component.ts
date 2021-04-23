@@ -7,6 +7,7 @@ import { UploadFileService } from 'src/app/services/upload-file/upload-file.serv
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-newblog',
@@ -41,7 +42,7 @@ export class NewblogComponent implements OnInit {
     url:""
   };
 
-  constructor(private spinner: NgxSpinnerService, private _newblogService: NewblogService, private router: Router, private uploadService: UploadFileService) {
+  constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private _newblogService: NewblogService, private router: Router, private uploadService: UploadFileService) {
   }
 
   ngOnInit(): void {
@@ -65,9 +66,11 @@ export class NewblogComponent implements OnInit {
     .catch( error => {
         console.log( error );
     } );
-  }
+}
 
   onSubmit() {
+
+    this.toastr.success("👍","You liked the blog");
 
     this.submitted=true;
     
@@ -99,7 +102,6 @@ export class NewblogComponent implements OnInit {
 
       this.selectedFiles = undefined;
 
-    console.log( `Form submit, model: ${ JSON.stringify( this.model ) }` );
     this._newblogService.createblog(this.model)
     .subscribe(
       data => console.log('Success!',data),
@@ -121,7 +123,6 @@ export class NewblogComponent implements OnInit {
     this.selectedFiles = fileInput.target.files;
     
     this.model.url="D:/uploads/"+fileInput.target.files[0].name;
-    console.log(fileInput.target.files[0]);
     if (fileInput.target.files && fileInput.target.files[0]) {
         // Size Filter Bytes
         const max_size = 20971520;
@@ -147,10 +148,6 @@ export class NewblogComponent implements OnInit {
             image.onload = rs => {
                 const img_height = rs.currentTarget['height'];
                 const img_width = rs.currentTarget['width'];
-
-                console.log(img_height, img_width);
-
-
                 if (img_height > max_height && img_width > max_width) {
                     this.imageError =
                         'Maximum dimentions allowed ' +
