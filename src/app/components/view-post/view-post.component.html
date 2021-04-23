@@ -35,7 +35,7 @@
     <div class="row">
       <form class="post_commentBox" [formGroup]="commentForm" (ngSubmit)="postComment()">
         <div class="form-group">
-          <input [(ngModel)]="btn_disable" name="comment" class="post_input form-control" autocomplete="off" type="text" placeholder="Add a comment..." [formControlName]="'comment'">
+          <input [(ngModel)]="btn_disable" name="comment" class="post_input form-control" autocomplete="off" type="text" placeholder="Add a comment..."  [formControlName]="'comment'">
         </div>
         <button class="post_button" type="submit"  [disabled]="!btn_disable">Post</button>
       </form>

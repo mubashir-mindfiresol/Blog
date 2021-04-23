@@ -57,7 +57,7 @@ import { LikeButtonComponent } from './components/like-button/like-button.compon
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule, 
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     MatIconModule,
     MatDatepickerModule,
     MatSidenavModule,

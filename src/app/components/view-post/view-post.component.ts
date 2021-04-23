@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostModel } from 'src/app/services/post/post-model';
@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./view-post.component.css']
 })
 
-export class ViewPostComponent implements OnInit {
+export class ViewPostComponent implements OnInit, OnChanges {
 
   @Input() posts: PostModel[];
 
@@ -49,9 +49,13 @@ export class ViewPostComponent implements OnInit {
     } else {
       localStorage.removeItem('foo') 
     }
-    console.log(JSON.parse(window.sessionStorage.getItem('auth-user')).username);
+    //console.log(JSON.parse(window.sessionStorage.getItem('auth-user')).username);
   }
 
+  ngOnChanges(change){
+    this.getPostById();
+    this.getCommentsForPost();
+  }
   postComment() {
     this.commentPayload.comment = this.commentForm.get('comment').value;
     this.commentPayload.blogId= this.blogId;
@@ -65,8 +69,9 @@ export class ViewPostComponent implements OnInit {
   }
 
   private getPostById() {
-    this.postService.getPost(this.blogId, JSON.parse(window.sessionStorage.getItem('auth-user')).username).subscribe(data => {
+    this.postService.getPost(this.blogId).subscribe(data => {
       this.post = data;
+      console.log("inside getpostById"+this.post);
     }, error => {
       throwError(error);
     });
