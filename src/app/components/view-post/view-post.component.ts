@@ -7,6 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommentPayload } from 'src/app/services/comment/comment.payload';
 import { CommentService } from 'src/app/services/comment/comment.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-view-post',
@@ -15,8 +16,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class ViewPostComponent implements OnInit, OnChanges {
-
-  @Input() posts: PostModel[];
 
   username:string;
   blogId: string;
@@ -28,7 +27,7 @@ export class ViewPostComponent implements OnInit, OnChanges {
   btn_disable:string;
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute,
-    private commentService: CommentService, private toastr: ToastrService) {
+    private commentService: CommentService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
 
     this.blogId = this.activateRoute.snapshot.params.id;
     this.commentForm = new FormGroup({
@@ -41,6 +40,10 @@ export class ViewPostComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 600);
     this.getPostById();
     this.getCommentsForPost();
     if (!localStorage.getItem('foo')) { 
@@ -53,6 +56,10 @@ export class ViewPostComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(change){
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 600);
     this.getPostById();
     this.getCommentsForPost();
   }
@@ -71,7 +78,6 @@ export class ViewPostComponent implements OnInit, OnChanges {
   private getPostById() {
     this.postService.getPost(this.blogId).subscribe(data => {
       this.post = data;
-      console.log("inside getpostById"+this.post);
     }, error => {
       throwError(error);
     });
@@ -80,8 +86,6 @@ export class ViewPostComponent implements OnInit, OnChanges {
   private getCommentsForPost() {
     this.commentService.getAllCommentsForPost(this.blogId).subscribe(data => {
       this.comments = data;
-      
-      console.log(data);
     }, error => {
       throwError(error);
     });

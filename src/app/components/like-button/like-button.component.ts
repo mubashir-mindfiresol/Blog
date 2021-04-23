@@ -5,6 +5,8 @@ import { LikeService } from '../../services/like/like.service';
 import { PostService } from '../../services/post/post.service';
 import { throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-like-button',
@@ -18,10 +20,13 @@ export class LikeButtonComponent implements OnInit,OnChanges {
   upvoteColor: string;
   liked: boolean;
   isActive:boolean;
+  blogId: string;
+
 
   constructor(private likeService: LikeService,
-    private postService: PostService, private toastr: ToastrService) {
+    private postService: PostService, private toastr: ToastrService, private activateRoute: ActivatedRoute) {
      
+      this.blogId = this.activateRoute.snapshot.params.id;
 
     this.likePayload = {
       like: undefined,
@@ -30,9 +35,7 @@ export class LikeButtonComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-    console.log(this.post);
-    this.updateLikeDetails();
-    this.userLiked();
+  
   }
   ngOnChanges(changes) {
     this.updateLikeDetails();
@@ -59,13 +62,13 @@ export class LikeButtonComponent implements OnInit,OnChanges {
   }
 
   private updateLikeDetails() {
-    this.postService.getPost(this.post.id).subscribe(blog => {
+    this.postService.getPost(this.blogId).subscribe(blog => {
       this.post = blog;
     });
   }
 
   private userLiked(){
-    this.likeService.liked(this.post.id).subscribe(data => {
+    this.likeService.liked(this.blogId).subscribe(data => {
       this.liked= data;
       this.isActive=this.liked;
     });
