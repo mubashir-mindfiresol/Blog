@@ -26,7 +26,7 @@ export class ViewPostComponent implements OnInit, OnChanges {
   commentText:string;
   btn_disable:string;
 
-  constructor(private postService: PostService, private activateRoute: ActivatedRoute,
+  constructor(private router: Router, private postService: PostService, private activateRoute: ActivatedRoute,
     private commentService: CommentService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
 
     this.blogId = this.activateRoute.snapshot.params.id;
@@ -69,9 +69,10 @@ export class ViewPostComponent implements OnInit, OnChanges {
     this.commentService.postComment(this.commentPayload).subscribe(data => {
       this.commentForm.get('comment').setValue('');
       this.getCommentsForPost();
-      this.toastr.info("Comment Added!!","Success")
+      this.toastr.info("Comment Added!!","Success");
     }, error => {
       throwError(error);
+      this.toastr.warning("Login to Comment!!","Login first");
     })
   }
 
@@ -80,6 +81,7 @@ export class ViewPostComponent implements OnInit, OnChanges {
       this.post = data;
     }, error => {
       throwError(error);
+      this.router.navigate(['/404']);
     });
   }
 

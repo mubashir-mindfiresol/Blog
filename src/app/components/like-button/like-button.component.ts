@@ -44,12 +44,8 @@ export class LikeButtonComponent implements OnInit,OnChanges {
   }
   
   likePost() {
-    this.isActive=!this.isActive;  
     this.likePayload.like = 1;
     this.like();
-    if(this.isActive){
-      this.toastr.success("👍","You liked the blog");
-    }
   }
 
   shareUrl(){
@@ -67,6 +63,10 @@ export class LikeButtonComponent implements OnInit,OnChanges {
     this.likePayload.blogId = this.post.id;
     this.likeService.like(this.likePayload).subscribe(() => {
       this.updateLikeDetails();
+      this.isActive=!this.isActive;  
+      if(this.isActive){
+        this.toastr.success("👍","You liked the blog");
+      }
     }, error => {
       this.toastr.error(error.error.message);
       throwError(error);
