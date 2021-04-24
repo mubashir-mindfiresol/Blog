@@ -70,7 +70,7 @@ export class NewblogComponent implements OnInit {
 
   onSubmit() {
 
-    this.toastr.success("👍","You liked the blog");
+    this.toastr.success("Success","Blog Posted Successfully!!");
 
     this.submitted=true;
     

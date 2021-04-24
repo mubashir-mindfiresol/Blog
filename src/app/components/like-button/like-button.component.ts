@@ -5,7 +5,7 @@ import { LikeService } from '../../services/like/like.service';
 import { PostService } from '../../services/post/post.service';
 import { throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 
 
 @Component({
@@ -21,12 +21,12 @@ export class LikeButtonComponent implements OnInit,OnChanges {
   liked: boolean;
   isActive:boolean;
   blogId: string;
-
+  copyText:string;
 
   constructor(private likeService: LikeService,
     private postService: PostService, private toastr: ToastrService, private activateRoute: ActivatedRoute) {
      
-      this.blogId = this.activateRoute.snapshot.params.id;
+    this.blogId = this.activateRoute.snapshot.params.id;
 
     this.likePayload = {
       like: undefined,
@@ -37,18 +37,30 @@ export class LikeButtonComponent implements OnInit,OnChanges {
   ngOnInit(): void {
   
   }
+  
   ngOnChanges(changes) {
     this.updateLikeDetails();
     this.userLiked();
   }
+  
   likePost() {
-    this.isActive=!this.isActive;
-    
+    this.isActive=!this.isActive;  
     this.likePayload.like = 1;
     this.like();
     if(this.isActive){
       this.toastr.success("👍","You liked the blog");
     }
+  }
+
+  shareUrl(){
+    var dummy = document.createElement('input'),
+    text = window.location.href;
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    this.toastr.success("Paste this link on any social media","Sharable Link Generated");
   }
 
   private like() {

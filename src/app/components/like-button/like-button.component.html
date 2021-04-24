@@ -1,5 +1,5 @@
 <div class="row noselect">
     <mat-icon (click)="likePost()" style="color: red">{{ isActive ? 'favorite' : 'favorite_border'}}</mat-icon>
-    <mat-icon style="color: rgb(43, 196, 43); margin-left: 10px;">share</mat-icon>
+    <mat-icon (click)="shareUrl()" style="color: rgb(43, 196, 43); margin-left: 10px;">share</mat-icon>
 </div>
 <div class="row noselect"><div class="likecount">{{post?.likeCount}} likes</div></div>
