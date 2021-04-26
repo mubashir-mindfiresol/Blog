@@ -1,0 +1,15 @@
+<h2>My Blogs:</h2>
+<hr />
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Update</th>        
+        <th>Delete</th>
+    </tr>
+    <tr *ngFor="let post of posts">
+        <td>{{post.title}}</td>
+        <td><button>Update</button></td>
+        <td><button (click)="delete(post.id)">Delete</button></td>
+    </tr>
+</table>
+<ngx-spinner></ngx-spinner>

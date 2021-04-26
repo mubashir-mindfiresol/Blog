@@ -40,7 +40,6 @@ signInButton.addEventListener('click', () => {
 if (this.tokenStorage.getToken()) {
   this.isLoggedIn = true;
   this.roles = this.tokenStorage.getUser().roles;
-
   }
   this.spinner.show();
   setTimeout(() => {
