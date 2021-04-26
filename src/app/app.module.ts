@@ -34,6 +34,7 @@ import { PostTileComponent } from './components/post-tile/post-tile.component';
 import { ViewPostComponent } from './components/view-post/view-post.component';
 import { LikeButtonComponent } from './components/like-button/like-button.component';
 import { EditblogComponent } from './components/editblog/editblog.component';
+import { UpdateBlogComponent } from './components/update-blog/update-blog.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { EditblogComponent } from './components/editblog/editblog.component';
     ViewPostComponent,
     LikeButtonComponent,
     EditblogComponent,
+    UpdateBlogComponent,
   ],
   imports: [
     BrowserModule,

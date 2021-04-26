@@ -5,6 +5,6 @@ export class PostModel {
     description: string;
     createDate:string;
     url: string;
-    username: string;
-    likeCount:number;
+    username?: string;
+    likeCount?:number;
 }

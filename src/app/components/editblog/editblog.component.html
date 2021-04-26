@@ -8,7 +8,7 @@
     </tr>
     <tr *ngFor="let post of posts">
         <td>{{post.title}}</td>
-        <td><button>Update</button></td>
+        <td><button (click)="update(post.id)">Update</button></td>
         <td><button (click)="delete(post.id)">Delete</button></td>
     </tr>
 </table>

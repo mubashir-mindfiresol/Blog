@@ -63,6 +63,7 @@ export class ViewPostComponent implements OnInit, OnChanges {
     this.getPostById();
     this.getCommentsForPost();
   }
+  
   postComment() {
     this.commentPayload.comment = this.commentForm.get('comment').value;
     this.commentPayload.blogId= this.blogId;

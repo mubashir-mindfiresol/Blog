@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { PostModel } from 'src/app/services/post/post-model';
@@ -14,7 +15,7 @@ export class EditblogComponent implements OnInit {
   posts: Array<PostModel> = [];
   msg:string;
   
-  constructor(private toastr: ToastrService, private postService: PostService, private spinner: NgxSpinnerService) {
+  constructor(private router: Router, private toastr: ToastrService, private postService: PostService, private spinner: NgxSpinnerService) {
     this.postService.getAllPostsByUser(JSON.parse(window.sessionStorage.getItem("auth-user")).username).subscribe(post => {
       this.posts = post;
     });
@@ -46,5 +47,10 @@ export class EditblogComponent implements OnInit {
       this.toastr.success(this.msg,"Deleted!!");
       location.reload();
     }
+  }
+
+  update(id: string){
+    console.log("Update Button Clicked");
+    this.router.navigateByUrl('/update-blog/'+ id);
   }
 }
