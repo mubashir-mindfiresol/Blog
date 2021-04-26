@@ -13,18 +13,17 @@
         </header>
         <!-- bit of a bio; who are you? -->
         <div class="profile-bio">
-          <p><strong>Likes: </strong> 42</p>
-          <p><strong>Blogs: </strong> 6</p><br>
+          <p><strong>Total Blog(s): </strong><i> {{ currentUser.blogcount }} </i></p><br>
           <p>
             <strong>Email: </strong> <em> {{ currentUser.email }}</em>
           </p>
           <br>
-            <strong>Roles:</strong>
-              <span *ngFor="let role of currentUser.roles">
-                <span *ngIf="role == 'ROLE_ADMIN'; then thenBlock else elseBlock"></span>
-                <ng-template #thenBlock>  {{ role }},</ng-template>
-                <ng-template #elseBlock>  {{ role }}</ng-template>
-              </span>  
+            <strong>Roles:</strong><br>
+              <i>
+                <span *ngFor="let role of currentUser.roles">
+                {{ role }}<br>
+                </span>
+              </i>  
         </div>
       </div>
   </div>
