@@ -1,15 +1,19 @@
-<h2>My Blogs:</h2>
-<hr />
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Update</th>        
-        <th>Delete</th>
-    </tr>
-    <tr *ngFor="let post of posts">
-        <td>{{post.title}}</td>
-        <td><button (click)="update(post.id)">Update</button></td>
-        <td><button (click)="delete(post.id)">Delete</button></td>
-    </tr>
-</table>
+<div class="container">
+    <div class="wrapper">
+        <div class="card" *ngFor="let post of posts">
+            <img src="../../../assets/images/blog3.jpg">
+            <div class="descriptions">
+                <h1>{{post.title}}</h1>
+                <p [innerHtml]="post.description">
+                </p>
+                <button class="delete" (click)="delete(post.id)">
+                    Delete
+                </button>
+                <button class="update" (click)="update(post.id)">
+                    Update
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <ngx-spinner></ngx-spinner>
