@@ -19,6 +19,7 @@ p{
   text-overflow: ellipsis;
 }
 .card{
+    margin-bottom: 18px;
     flex: 1;
     flex-basis: 300px;
     flex-grow: 0;
@@ -104,5 +105,9 @@ p{
 }
 
 .update{
+    background-color: #592bff;
+}
+
+.read{
     background-color: dodgerblue;
 }

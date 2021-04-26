@@ -53,4 +53,8 @@ export class EditblogComponent implements OnInit {
     console.log("Update Button Clicked");
     this.router.navigateByUrl('/update-blog/'+ id);
   }
+
+  goToPost(id: string){
+    this.router.navigateByUrl('/view-post/'+ id);
+  }
 }

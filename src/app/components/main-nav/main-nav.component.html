@@ -9,9 +9,9 @@
       <a href="/home" mat-list-item routerLink="home" routerLinkActive="active"><mat-icon>home</mat-icon> Home Page</a>
       <mat-divider></mat-divider>
       <a href="/admin" *ngIf="showAdminBoard" mat-list-item routerLink="admin" routerLinkActive="active"><mat-icon>admin_panel_settings</mat-icon> Admin Board</a>
-      <a *ngIf="isLoggedIn" mat-list-item routerLink="/editblog" routerLinkActive="active"><mat-icon>fingerprint</mat-icon> Edit Blog</a>
+      <a *ngIf="isLoggedIn" mat-list-item routerLink="/editblog" routerLinkActive="active"><mat-icon>edit</mat-icon> Edit Blog</a>
       <a *ngIf="!isLoggedIn" mat-list-item routerLink="/login" routerLinkActive="active"><mat-icon>login</mat-icon> SignIn/SignUp</a>
-      <a *ngIf="isLoggedIn" mat-list-item routerLink="/profile" routerLinkActive="active"><mat-icon>fingerprint</mat-icon> {{username}}</a>
+      <a *ngIf="isLoggedIn" mat-list-item routerLink="/profile" routerLinkActive="active"><mat-icon>fingerprint</mat-icon> My Profile</a>
       <a *ngIf="isLoggedIn" mat-list-item routerLink="/newblog" routerLinkActive="active"><mat-icon>book_online</mat-icon> Create Blog</a>
       <mat-divider></mat-divider>
       <a *ngIf="isLoggedIn" mat-list-item (click)="logout()"><mat-icon>logout</mat-icon> Logout</a>
