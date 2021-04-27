@@ -7,6 +7,7 @@ import { UserService } from '../../services/user/user.service';
   templateUrl: './board-admin.component.html',
   styleUrls: ['./board-admin.component.css']
 })
+
 export class BoardAdminComponent implements OnInit {
   content: string;
 
