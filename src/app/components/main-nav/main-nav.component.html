@@ -12,12 +12,12 @@
       <a *ngIf="isLoggedIn" mat-list-item routerLink="/editblog" routerLinkActive="active"><mat-icon>edit</mat-icon> Edit Blog</a>
       <a *ngIf="!isLoggedIn" mat-list-item routerLink="/login" routerLinkActive="active"><mat-icon>login</mat-icon> SignIn/SignUp</a>
       <mat-list-item *ngIf="isLoggedIn" [matMenuTriggerFor]="menu">
-        <mat-icon>unfold_more</mat-icon>
+        <mat-icon>face</mat-icon>
         <a matline>Profile</a>
     </mat-list-item>
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/profile" routerLinkActive="active"><mat-icon  routerLinkActive="active">fingerprint</mat-icon>Profile</button>
-      <button mat-menu-item routerLink="/changepassword" routerLinkActive="active"><mat-icon routerLinkActive="active">password</mat-icon>Password</button>
+      <button mat-menu-item routerLink="/changepassword" routerLinkActive="active"><mat-icon routerLinkActive="active">verified_user</mat-icon>Password</button>
     </mat-menu>
       <a *ngIf="isLoggedIn" mat-list-item routerLink="/newblog" routerLinkActive="active"><mat-icon>book_online</mat-icon> Create Blog</a>
       <mat-divider></mat-divider>

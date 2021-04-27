@@ -11,8 +11,8 @@ import { ChangepasswordService } from 'src/app/services/changepassword/changepas
 export class ChangepasswordComponent implements OnInit {
   
   data:boolean;
-
   blogId:string;
+
   //model
   public model = {
     oldpassword: "",
@@ -27,6 +27,7 @@ export class ChangepasswordComponent implements OnInit {
     
   }
 
+  //Function called to change Password onSubmit()
   changePassword(){
     console.log("Change Password Clicked!!");
     this.passwordService.changePassword(this.blogId, this.model).subscribe(
