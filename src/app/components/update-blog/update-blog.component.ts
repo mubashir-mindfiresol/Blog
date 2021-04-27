@@ -8,7 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { PostModel } from 'src/app/services/post/post-model';
 import { PostService } from 'src/app/services/post/post.service';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-update-blog',

@@ -11,6 +11,7 @@ import { UploadFilesComponent } from './components/upload-files/upload-files.com
 import { ViewPostComponent } from './components/view-post/view-post.component';
 import { EditblogComponent } from './components/editblog/editblog.component';
 import { UpdateBlogComponent } from './components/update-blog/update-blog.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"/login", pathMatch:"full"},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'admin', component: BoardAdminComponent },
   {path: 'newblog', component: NewblogComponent},
+  {path: 'changepassword', component: ChangepasswordComponent},
   {path:"**", component:NotfoundComponent}
 ];
 

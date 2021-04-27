@@ -13,11 +13,11 @@
         </header>
         <!-- bit of a bio; who are you? -->
         <div class="profile-bio">
-          <p><strong>Total Blog(s): </strong><i> {{ currentUser.blogcount }} </i></p><br>
-          <p>
+          <h4><strong>Total Blog(s): </strong><i> {{ currentUser.blogcount }} </i></h4>
+          <h4>
             <strong>Email: </strong> <em> {{ currentUser.email }}</em>
-          </p>
-          <br>
+          </h4>
+          
             <strong>Roles:</strong><br>
               <i>
                 <span *ngFor="let role of currentUser.roles">
