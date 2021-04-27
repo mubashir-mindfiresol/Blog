@@ -1,8 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~ngx-toastr/toastr.css';
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@import '~ngx-toastr/toastr.css';
+
+html, body { height: 100%; }
+
+body { margin: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 16px; }
+
+h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 46px;  
+    }
 .text-center{
     text-align: center;
 }

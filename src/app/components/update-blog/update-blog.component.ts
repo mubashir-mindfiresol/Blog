@@ -80,10 +80,10 @@ config = {
 private getPostById() {
   this.postService.getPost(this.blogId).subscribe(data => {
     this.post = data;
+    this.model.title=this.post.title;
     this.model.category=this.post.category;
     this.model.description=this.post.description;
-    this.model.title=this.post.title;
-    console.log(this.model.title);
+    console.log(this.model.category);
   }, error => {
     throwError(error);
     this.router.navigate(['/404']);
