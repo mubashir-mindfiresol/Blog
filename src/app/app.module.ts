@@ -35,6 +35,8 @@ import { ViewPostComponent } from './components/view-post/view-post.component';
 import { LikeButtonComponent } from './components/like-button/like-button.component';
 import { EditblogComponent } from './components/editblog/editblog.component';
 import { UpdateBlogComponent } from './components/update-blog/update-blog.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { UpdateBlogComponent } from './components/update-blog/update-blog.compon
     LikeButtonComponent,
     EditblogComponent,
     UpdateBlogComponent,
+    ChangepasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { UpdateBlogComponent } from './components/update-blog/update-blog.compon
     HttpClientModule,
     MatCardModule,
     CKEditorModule,
+    MatMenuModule,
     ToastrModule.forRoot({
       positionClass :'toast-top-right'
     }),
