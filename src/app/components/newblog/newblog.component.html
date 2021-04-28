@@ -27,7 +27,7 @@
             </select>
         </div>
         <!-- <app-upload-files></app-upload-files> -->
-        <div class="upload-photo">
+        <!-- <div class="upload-photo">
         <label>Upload Logo</label>
                 {{imageError}}
                 <div class="custom-file fileInputProfileWrap">
@@ -45,6 +45,15 @@
                     </div>
 
                 </div>
+            </div> -->
+            <div class="form-group">
+                <label for="file">File</label>
+                <input 
+                    name="file"
+                    id="file" 
+                    type="file" 
+                    class="form-control"
+                    (change)="onFileChange($event)">
             </div>
         <div class="form-group">
             <legend><span class="number"> </span> Description</legend>

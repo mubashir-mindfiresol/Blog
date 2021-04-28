@@ -19,7 +19,7 @@ export class ViewPostComponent implements OnInit, OnChanges {
 
   username:string;
   blogId: string;
-  post: PostModel;
+  post: PostModel=new PostModel();
   commentForm: FormGroup;
   commentPayload: CommentPayload;
   comments: CommentPayload[];
@@ -93,5 +93,4 @@ export class ViewPostComponent implements OnInit, OnChanges {
       throwError(error);
     });
   }
-
 }
