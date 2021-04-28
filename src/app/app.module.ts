@@ -29,7 +29,6 @@ import { HomeComponent } from './components/home/home.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NewblogComponent } from './components/newblog/newblog.component';
-import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { PostTileComponent } from './components/post-tile/post-tile.component';
 import { ViewPostComponent } from './components/view-post/view-post.component';
 import { LikeButtonComponent } from './components/like-button/like-button.component';
@@ -49,7 +48,6 @@ import { MatMenuModule } from '@angular/material/menu';
     HomeComponent,
     BoardAdminComponent,
     NewblogComponent,
-    UploadFilesComponent,
     PostTileComponent,
     ViewPostComponent,
     LikeButtonComponent,

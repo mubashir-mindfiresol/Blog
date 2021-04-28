@@ -4,6 +4,14 @@
 	margin: 10px auto;
 	border-radius: 8px;
 }
+
+img{
+	width: 550px;
+	height: 400px;
+	max-width: 100%;
+	border-radius: 10px;
+  }
+
 .form-style-5 fieldset{
 	border: none;
 }

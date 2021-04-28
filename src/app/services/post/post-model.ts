@@ -4,7 +4,7 @@ export class PostModel {
     category:string;
     description: string;
     createDate:string;
-    url: string;
+    url?: string;
     username?: string;
     likeCount?:number;
 }
