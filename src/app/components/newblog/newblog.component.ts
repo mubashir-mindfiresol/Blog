@@ -23,6 +23,7 @@ export class NewblogComponent implements OnInit {
   imageError: string;
   isImageSaved: boolean;
   cardImageBase64: string;
+  imageSrc: string;
 
   myForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(1)]),

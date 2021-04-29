@@ -13,7 +13,7 @@ export class PostTileComponent implements OnInit {
   @Input() posts: PostModel[];
   p: number = 1;
   post: any = {};
-
+  
   constructor(private router: Router) { }
 
   ngOnInit(): void {
