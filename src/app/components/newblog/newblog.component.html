@@ -1,5 +1,5 @@
 <div class="form-style-5 container">
-    <form *ngIf=!submitted (ngSubmit)="onSubmit()" novalidate>
+    <form *ngIf=!submitted (ngSubmit)="onSubmit()" name="newForm">
         <div class="form-group">
             <legend for="inputdefault"><span class="number"> </span> Title</legend>
             <input class="form-control" id="inputdefault" [(ngModel)]="model.title" type="text" name="name" placeholder="Blog Title">
@@ -26,43 +26,23 @@
                   </optgroup>
             </select>
         </div>
-        <!-- <app-upload-files></app-upload-files> -->
-        <!-- <div class="upload-photo">
-        <label>Upload Logo</label>
-                {{imageError}}
-                <div class="custom-file fileInputProfileWrap">
-                    <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
-                    <div class="img-space">
-
-                        <ng-container *ngIf="isImageSaved; else elseTemplate">
-                            <img [src]="cardImageBase64" style="height: 600px; width: 450px;" />
-                        </ng-container>
-                        <ng-template #elseTemplate>
-
-                            <img src="../../../assets/images/camera.PNG" class="img-responsive">
-                        </ng-template>
-
-                    </div>
-
-                </div>
-            </div> -->
-            <div class="form-group">
-                <label for="file">File</label>
-                <input 
-                    name="file"
-                    id="file" 
-                    type="file" 
-                    class="form-control"
-                    (change)="onFileChange($event)">
-            </div>
+        <div class="form-group">
+            <label for="file">File</label>
+            <input 
+                name="file"
+                id="file" 
+                type="file" 
+                class="form-control"
+                (change)="onFileChange($event)"
+                [(ngModel)]="file">
+        </div>
         <div class="form-group">
             <legend><span class="number"> </span> Description</legend>
                 <ckeditor name="name" [(ngModel)]="model.description" [editor]="editor" [config]="config" [data]="data"></ckeditor>
             <div class="container">
                 <div class="row">
-                   
-                        <button type="submit" (change)="selectFile($event)">Submit</button>
-                        <button type="reset">Clear</button>
+                    <button type="submit" (change)="selectFile($event)" [disabled]="!file">Submit</button>
+                    <button type="reset">Clear</button>
                 </div>
             </div>
         </div>

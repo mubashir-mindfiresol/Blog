@@ -19,7 +19,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
-import { HomepageComponent } from './components/homepage/homepage.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -36,13 +35,14 @@ import { EditblogComponent } from './components/editblog/editblog.component';
 import { UpdateBlogComponent } from './components/update-blog/update-blog.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainNavComponent,
-    HomepageComponent,
     NotfoundComponent,
     ProfileComponent,
     HomeComponent,
@@ -64,6 +64,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatDatepickerModule,
     MatSidenavModule,
+    Ng2SearchPipeModule,
     MatInputModule,
     MatNativeDateModule,
     MatFormFieldModule,

@@ -4,10 +4,11 @@
 }
 
 img{
-  width: 550px;
+  margin-bottom: 15px;
+  width: 400px;
   height: 400px;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 35px;
 }
 
 button {
@@ -54,7 +55,7 @@ font-size: 16px;
 display: block;
   white-space: nowrap;
   width: 70%;
-  height: 2rem;
+  height: 4rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }

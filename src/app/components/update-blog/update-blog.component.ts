@@ -100,6 +100,7 @@ private getPostById() {
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var edited = "(edited)"
     this.model.createDate = edited +" | "+ date+' '+time+' ';
+    this.model.url=this.post.url;
     this.postService.updatePost(this.blogId, this.model)
     .subscribe(
       data => console.log('Success!',data),
@@ -107,7 +108,7 @@ private getPostById() {
     )
     this.spinner.show();
     setTimeout(() => {
-        /** spinner ends after 5 seconds */
+        /** spinner ends after 1.5 seconds */
         this.spinner.hide();
     }, 1500);
     setTimeout(() => {

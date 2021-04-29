@@ -11,7 +11,6 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class HomeComponent implements OnInit {
 
   posts: Array<PostModel> = [];
-
   constructor(private postService: PostService, private spinner: NgxSpinnerService) {
     this.postService.getAllPosts().subscribe(post => {
       this.posts = post;
