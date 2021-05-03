@@ -17,6 +17,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class NewblogComponent implements OnInit {
 
+  //Variable for CKEditor
   public Editor = ClassicEditor;
   
   // Variables for image-preview
@@ -29,15 +30,17 @@ export class NewblogComponent implements OnInit {
     name: new FormControl('', [Validators.required, Validators.minLength(1)]),
     file: new FormControl('', [Validators.required]),
     fileSource: new FormControl('', [Validators.required])
-  });  //Variable to submit
+  });  
+  
+  //Variable to submit
   submitted=false;
+
   //upload
   selectedFiles: FileList;
   currentFile: File;
   progress = 0;
   message = '';
   fileInfos: Observable<any>;
-
   
   //model
   public model = {
@@ -56,21 +59,6 @@ export class NewblogComponent implements OnInit {
   setTimeout(() => {
     this.spinner.hide();
   }, 1500);
-
-    // ClassicEditor
-    // .create( document.querySelector( '#editor' ), {
-    //     toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-    //     heading: {
-    //         options: [
-    //             { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-    //             { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-    //             { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-    //         ]
-    //     }
-    // } )
-    // .catch( error => {
-    //     console.log( error );
-    // } );
 }
 
 editor = ClassicEditor;
