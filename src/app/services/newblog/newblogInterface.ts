@@ -4,6 +4,8 @@ export class newblogInterface {
         public category:string,
         public description:string,
         public createDate:string,
-        public url?:string,
+        public name:string,
+        public path:string,
+        public data:any,
     ) {}
 }

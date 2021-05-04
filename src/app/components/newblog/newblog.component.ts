@@ -48,7 +48,9 @@ export class NewblogComponent implements OnInit {
     category:"",
     description:"",
     createDate:"",
-    url:""
+    name:"",
+    path:"",
+    data:[""]
   };
 
   url:any;
@@ -97,27 +99,32 @@ config = {
   },
 }
 
-// onFileChange(event) {
+onFileChange(event) {
   
-//   if (event.target.files.length > 0) {
-//     const file = event.target.files[0];
-//     this.myForm.patchValue({
-//       fileSource: file
-//     });
-//   }
-// }
-
-onSelectFile(event) { // called each time file input changes
-  if (event.target.files && event.target.files[0]) {
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+    this.myForm.patchValue({
+      fileSource: file
+    });
     var reader = new FileReader();
-
-    reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-    reader.onload = (event) => { // called once readAsDataURL is completed
-      this.url = event.target.result;
-    }
+         reader.readAsDataURL(event.target.files[0]); // read file as data url
+             reader.onload = (event) => { // called once readAsDataURL is completed
+                 this.url = event.target.result;
+  }
   }
 }
+
+// onSelectFile(event) { // called each time file input changes
+//   if (event.target.files && event.target.files[0]) {
+//     var reader = new FileReader();
+
+//     reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+//     reader.onload = (event) => { // called once readAsDataURL is completed
+//       this.url = event.target.result;
+//     }
+//   }
+// }
 
   onSubmit() {
 
@@ -138,9 +145,10 @@ onSelectFile(event) { // called each time file input changes
     formData.append('file', this.myForm.get('fileSource').value);
     console.log(this.myForm.get('fileSource').value);
     this.uploadService.upload(this.myForm.get('fileSource').value).subscribe(data => {
-    this.model.url=data.url;
+    this.model.name=data.fileName;
+    this.model.path=data.path;
     console.log(data);
-    console.log(this.model.url);
+    console.log("file name is"+this.model.name);
     this._newblogService.createblog(this.model)
     .subscribe(
       data => console.log('Success!',data),
@@ -149,7 +157,7 @@ onSelectFile(event) { // called each time file input changes
     });
 
     //New code ends
-    console.log(this.model.url);
+    console.log(this.model.name);
 
     
     this.spinner.show();
