@@ -51,6 +51,8 @@ export class NewblogComponent implements OnInit {
     url:""
   };
 
+  url:any;
+
   constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private _newblogService: NewblogService, private router: Router, private uploadService: UploadFileService) {
   }
 
@@ -95,13 +97,25 @@ config = {
   },
 }
 
-onFileChange(event) {
+// onFileChange(event) {
   
-  if (event.target.files.length > 0) {
-    const file = event.target.files[0];
-    this.myForm.patchValue({
-      fileSource: file
-    });
+//   if (event.target.files.length > 0) {
+//     const file = event.target.files[0];
+//     this.myForm.patchValue({
+//       fileSource: file
+//     });
+//   }
+// }
+
+onSelectFile(event) { // called each time file input changes
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+
+    reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+    reader.onload = (event) => { // called once readAsDataURL is completed
+      this.url = event.target.result;
+    }
   }
 }
 
