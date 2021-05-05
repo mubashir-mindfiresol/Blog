@@ -1,0 +1,12 @@
+export const authApi = "http://localhost:8080/api/auth/";
+export const getAllCommentsApi = "http://localhost:8080/api/comments/id/";
+export const postCommentApi = "http://localhost:8080/api/comments/createcomment";
+export const likeApi="http://localhost:8080/api/like/likeblog/";
+export const newblogApi='http://localhost:8080/api/blogs/createblog/';
+export const updateBlogApi="http://localhost:8080/api/blogs/id/";
+export const deleteBlogApi="http://localhost:8080/api/blogs/deleteblog/";
+export const allBlogsByUserApi="http://localhost:8080/api/blogs/";
+export const blogsByIdApi="http://localhost:8080/api/blogs/id/";
+export const createBlogApi="http://localhost:8080/api/blogs/createblog";
+export const getAllBlogs="http://localhost:8080/api/blogs/";
+export const uploadApi = "http://localhost:8080/single/upload";

@@ -6,6 +6,6 @@ export class newblogInterface {
         public createDate:string,
         public name:string,
         public path:string,
-        public data:any,
+        public url:string
     ) {}
 }

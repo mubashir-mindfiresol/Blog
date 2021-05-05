@@ -30,6 +30,7 @@ export class ViewPostComponent implements OnInit, OnChanges {
     private commentService: CommentService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
 
     this.blogId = this.activateRoute.snapshot.params.id;
+    console.log(this.blogId);
     this.commentForm = new FormGroup({
       comment: new FormControl('', Validators.required)
     });
@@ -78,8 +79,10 @@ export class ViewPostComponent implements OnInit, OnChanges {
   }
 
   private getPostById() {
+    console.log(this.blogId);
     this.postService.getPost(this.blogId).subscribe(data => {
       this.post = data;
+      console.log(this.post);
     }, error => {
       throwError(error);
       this.router.navigate(['/404']);
