@@ -51,7 +51,6 @@ export class NewblogComponent implements OnInit {
     name:"",
     path:"",
     url:"",
-    data:[""]
   };
 
   url:any;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { throwError } from 'rxjs';
 import * as _ from 'lodash';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -26,7 +26,8 @@ export class UpdateBlogComponent implements OnInit {
     category:"",
     description:"",
     createDate:"",
-    url:""
+    name:"",
+    url:"",
   };
 
   constructor(private activateRoute: ActivatedRoute, private postService: PostService, private spinner: NgxSpinnerService, private toastr: ToastrService, private _newblogService: NewblogService, private router: Router) {
@@ -82,6 +83,7 @@ private getPostById() {
     this.model.title=this.post.title;
     this.model.category=this.post.category;
     this.model.description=this.post.description;
+    this.model.url=this.post.url;
     console.log(this.model.category);
   }, error => {
     throwError(error);
