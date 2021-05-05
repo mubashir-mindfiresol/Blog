@@ -50,6 +50,7 @@ export class NewblogComponent implements OnInit {
     createDate:"",
     name:"",
     path:"",
+    url:"",
     data:[""]
   };
 
@@ -147,6 +148,7 @@ onFileChange(event) {
     this.uploadService.upload(this.myForm.get('fileSource').value).subscribe(data => {
     this.model.name=data.fileName;
     this.model.path=data.path;
+    this.model.url=data.url;
     console.log(data);
     console.log("file name is"+this.model.name);
     this._newblogService.createblog(this.model)
