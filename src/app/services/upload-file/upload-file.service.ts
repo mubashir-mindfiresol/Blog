@@ -15,7 +15,7 @@ export class UploadFileService {
     formData.append('file',file);
     return this.http.post<any>(uploadApi, formData);
   }
-  // getFile(fileName: String): Observable<any> {
+  // getFile(fileName: string): Observable<any> {
   //   return this.http.get<any>('http://localhost:8080/download/'+ fileName);
   // }
 }
