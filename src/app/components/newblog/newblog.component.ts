@@ -53,6 +53,7 @@ export class NewblogComponent implements OnInit {
     url:"",
   };
 
+  //Variable created to help with Preview image 
   url:any;
 
   constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private _newblogService: NewblogService, private router: Router, private uploadService: UploadFileService) {
@@ -99,6 +100,7 @@ config = {
   },
 }
 
+//Triggered when a file is Chosen
 onFileChange(event) {
   
   if (event.target.files.length > 0) {
@@ -141,6 +143,7 @@ onFileChange(event) {
     this.model.createDate = date+' '+time;
     
     //New Code for Uploading image/file
+
     const formData = new FormData();
     formData.append('file', this.myForm.get('fileSource').value);
     console.log(this.myForm.get('fileSource').value);
@@ -158,9 +161,9 @@ onFileChange(event) {
     });
 
     //New code ends
+
     console.log(this.model.name);
 
-    
     this.spinner.show();
     setTimeout(() => {
         /** spinner ends after 5 seconds */

@@ -34,6 +34,7 @@ export class EditblogComponent implements OnInit {
     }
   }
 
+  //Function to delete seleted Blog
   delete(id: string){
     if(confirm("Are you sure you want to delete?"))
     {
@@ -49,11 +50,13 @@ export class EditblogComponent implements OnInit {
     }
   }
 
+  //Redirects to Update Page
   update(id: string){
     console.log("Update Button Clicked");
     this.router.navigateByUrl('/update-blog/'+ id);
   }
 
+  //If User wants to Read the Blog
   goToPost(id: string){
     this.router.navigateByUrl('/view-post/'+ id);
   }

@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
     this.currentUser = this.token.getUser();
   }
 
+  //ng-spinner is called
   showSpinner() {
     this.spinner.show();
     setTimeout(() => {

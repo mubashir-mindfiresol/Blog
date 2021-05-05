@@ -37,6 +37,7 @@ export class MainNavComponent implements OnInit{
     }
   }
 
+  //Clear Token Storage
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.href="/login"

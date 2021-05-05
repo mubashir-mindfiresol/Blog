@@ -20,10 +20,12 @@ export class PostTileComponent implements OnInit {
     
   }
 
+  //Redirects to individual post
   goToPost(id: number): void {
     this.router.navigateByUrl('/view-post/'+ id);
   }
 
+  //Function for Pagination
   onPageChange(page) {
     this.p = page;
  }
