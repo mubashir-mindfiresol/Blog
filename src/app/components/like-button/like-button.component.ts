@@ -43,11 +43,13 @@ export class LikeButtonComponent implements OnInit,OnChanges {
     this.userLiked();
   }
   
+  //Called when user clicks on Like button
   likePost() {
     this.likePayload.like = 1;
     this.like();
   }
 
+  //Called when User Clicks on Share button
   shareUrl(){
     var dummy = document.createElement('input'),
     text = window.location.href;
@@ -59,6 +61,7 @@ export class LikeButtonComponent implements OnInit,OnChanges {
     this.toastr.success("Paste this link on any social media","Sharable Link Generated");
   }
 
+  //Like-Service call
   private like() {
     this.likePayload.blogId = this.post.id;
     this.likeService.like(this.likePayload).subscribe(() => {
@@ -73,12 +76,14 @@ export class LikeButtonComponent implements OnInit,OnChanges {
     });
   }
 
+  //Update Blog Service Call
   private updateLikeDetails() {
     this.postService.getPost(this.blogId).subscribe(blog => {
       this.post = blog;
     });
   }
 
+  //Check whether user has already liked the blog or not
   private userLiked(){
     this.likeService.liked(this.blogId).subscribe(data => {
       this.liked= data;

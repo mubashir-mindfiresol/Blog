@@ -23,28 +23,27 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private spinner: NgxSpinnerService, private tokenStorage: TokenStorageService, private toastr: ToastrService) { }
 
   ngOnInit(): void{
-    
+
     const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
 
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
+    signUpButton.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
 
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
-    
-//SignIn Code
-if (this.tokenStorage.getToken()) {
-  this.isLoggedIn = true;
-  this.roles = this.tokenStorage.getUser().roles;
-  }
-  this.spinner.show();
-  setTimeout(() => {
-    this.spinner.hide();
-  }, 1500);
+    signInButton.addEventListener('click', () => {
+      container.classList.remove("right-panel-active");
+    });
+        
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+      }
+      this.spinner.show();
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1500);
 }
 
 showSuccess() {
@@ -60,6 +59,7 @@ console.log("showerror() is called");
 return false;
 }
 
+//SignUp Code
   onSignUp(): void {
     this.authService.register(this.form).subscribe(
       data => {
@@ -74,6 +74,7 @@ return false;
     );
   }
 
+  //SignIn Code
   onSignIn(): void {
     this.authService.login(this.form).subscribe(
       data => {
@@ -98,6 +99,7 @@ return false;
     );
     }
 
+    //Reloading will occur to overcome minor CSS Glitches
   reloadPage(): void {
     window.location.reload();
   }

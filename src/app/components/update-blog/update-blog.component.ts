@@ -36,60 +36,60 @@ export class UpdateBlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-  setTimeout(() => {
-    this.spinner.hide();
-  }, 1500);
-    this.getPostById();
-}
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1500);
+      this.getPostById();
+  }
 
-editor = ClassicEditor;
-data: any;
-config = {
-  toolbar: [
-    'undo',
-    'redo',
-    '|',
-    'heading',
-    '|',
-    'bold',
-    'italic',
-    '|',
-    'link',
-    'mediaEmbed',
-    '|',
-    'bulletedList',
-    'numberedList',
-    '|',
-    'indent',
-    'outdent',
-    '|',
-    'insertTable',
-    'blockQuote',
-  ],
-  language: 'id',
-  image: {
+  editor = ClassicEditor;
+  data: any;
+  config = {
     toolbar: [
-      'imageTextAlternative',
-      'imageStyle:full',
-      'imageStyle:side'
-    ]
-  },
-}
+      'undo',
+      'redo',
+      '|',
+      'heading',
+      '|',
+      'bold',
+      'italic',
+      '|',
+      'link',
+      'mediaEmbed',
+      '|',
+      'bulletedList',
+      'numberedList',
+      '|',
+      'indent',
+      'outdent',
+      '|',
+      'insertTable',
+      'blockQuote',
+    ],
+    language: 'id',
+    image: {
+      toolbar: [
+        'imageTextAlternative',
+        'imageStyle:full',
+        'imageStyle:side'
+      ]
+    },
+  }
 
 
-private getPostById() {
-  this.postService.getPost(this.blogId).subscribe(data => {
-    this.post = data;
-    this.model.title=this.post.title;
-    this.model.category=this.post.category;
-    this.model.description=this.post.description;
-    this.model.url=this.post.url;
-    console.log(this.model.category);
-  }, error => {
-    throwError(error);
-    this.router.navigate(['/404']);
-  });
-}
+  private getPostById() {
+    this.postService.getPost(this.blogId).subscribe(data => {
+      this.post = data;
+      this.model.title=this.post.title;
+      this.model.category=this.post.category;
+      this.model.description=this.post.description;
+      this.model.url=this.post.url;
+      console.log(this.model.category);
+    }, error => {
+      throwError(error);
+      this.router.navigate(['/404']);
+    });
+  }
 
   updateBlog(){
 
