@@ -6,7 +6,9 @@ export class PostModel {
     createDate:string;
     url: string;
     username?: string;
+    name?:string;
     likeCount?:number;
     path?:string;
     data?:any;
+    image?:string;
 }

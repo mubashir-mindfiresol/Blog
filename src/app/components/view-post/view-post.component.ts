@@ -8,6 +8,8 @@ import { CommentPayload } from 'src/app/services/comment/comment.payload';
 import { CommentService } from 'src/app/services/comment/comment.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { UploadFileService } from 'src/app/services/upload-file/upload-file.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-post',
@@ -25,8 +27,9 @@ export class ViewPostComponent implements OnInit, OnChanges {
   comments: CommentPayload[];
   commentText:string;
   btn_disable:string;
+  images:any;
 
-  constructor(private router: Router, private postService: PostService, private activateRoute: ActivatedRoute,
+  constructor(private sanitizer: DomSanitizer, private uploadFile:UploadFileService, private router: Router, private postService: PostService, private activateRoute: ActivatedRoute,
     private commentService: CommentService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
 
     this.blogId = this.activateRoute.snapshot.params.id;
@@ -64,7 +67,17 @@ export class ViewPostComponent implements OnInit, OnChanges {
     this.getPostById();
     this.getCommentsForPost();
   }
+
   
+
+  // getImg(name){
+  //   this.uploadFile.getFile(name).subscribe(data =>{
+  //     let objectURL = 'data:image/jpeg;base64,' + data.data;
+  //     console.log(objectURL);
+  //     return this.sanitizer.bypassSecurityTrustUrl(objectURL);
+  //   })
+  // }
+
   postComment() {
     this.commentPayload.comment = this.commentForm.get('comment').value;
     this.commentPayload.blogId= this.blogId;
@@ -82,6 +95,9 @@ export class ViewPostComponent implements OnInit, OnChanges {
     console.log(this.blogId);
     this.postService.getPost(this.blogId).subscribe(data => {
       this.post = data;
+      this.uploadFile.getFile(this.post.name).subscribe(data =>{
+        this.post.image = "data:image/jpg;base64," + data.data;
+        });
       console.log(this.post);
     }, error => {
       throwError(error);

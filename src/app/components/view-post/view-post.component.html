@@ -16,7 +16,7 @@
         <h1>{{post?.title}}</h1><br>
         <div class="col-md-12">
           <div class="row">
-            <img style="padding: 0 15px;" mat-card-image src="{{post.url}}" alt="blog_image">
+            <img style="padding: 0 15px;" mat-card-image [src]="post.image" alt="blog_image">
           </div>
           <hr>
         </div>
