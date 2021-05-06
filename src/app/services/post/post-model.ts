@@ -10,4 +10,5 @@ export class PostModel {
     likeCount?:number;
     path?:string;
     data?:any;
+    image?:string;
 }
