@@ -3,31 +3,31 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
 ## Screenshots
-![Signup Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/signup.PNG)
+![Signup Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/signup.PNG)
 
 (Signup Page)
 
-![Login Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/login.PNG)
+![Login Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/login.PNG)
 
 (Login Page)
 
-![Home Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/homepage1.PNG)
+![Home Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/homepage1.PNG)
 
 (HomePage - I)
 
-![Home Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/homepage2.PNG)
+![Home Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/homepage2.PNG)
 
 (HomePage - II)
 
-![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/postpage1.PNG)
+![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/postpage1.PNG)
 
 (PostPage - I)
 
-![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/postpage2.PNG)
+![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/postpage2.PNG)
 
 (PostPage - II)
 
-![Edit Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/editblog.PNG)
+![Edit Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/editblog.PNG)
 
 (EditPage)
 
