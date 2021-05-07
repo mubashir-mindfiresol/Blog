@@ -11,13 +11,25 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 (Login Page)
 
-![Login Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/homepage1.PNG)
+![Home Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/homepage1.PNG)
 
 (HomePage - I)
 
-![Login Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/homepage2.PNG)
+![Home Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/homepage2.PNG)
 
-(HomePage - I)
+(HomePage - II)
+
+![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/postpage1.PNG)
+
+(PostPage - I)
+
+![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/postpage2.PNG)
+
+(PostPage - II)
+
+![Edit Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/develop/images/editblog.PNG)
+
+(EditPage)
 
 ## Development server
 
