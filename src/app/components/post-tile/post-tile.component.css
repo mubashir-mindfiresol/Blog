@@ -30,25 +30,25 @@ button {
     font-size: 16px;
   }
   
-  .ngx-pagination a{
-    text-decoration: none;
-  }
+.ngx-pagination a{
+  text-decoration: none;
+}
 
-  .ngx-pagination a:hover{
-    color: lightseagreen;
-  }
+.ngx-pagination a:hover{
+  color: lightseagreen;
+}
 
-  .ngx-pagination .current,
-  .btn-info {
-    background: #17a2b8 !important;
-    border: transparent !important;
-    border-radius: 50px !important;
-  }
-  
-  .ngx-pagination .current:hover {
-    border-radius: 50px !important; 
-    border: transparent !important;
-  }
+.ngx-pagination .current,
+.btn-info {
+  background: #17a2b8 !important;
+  border: transparent !important;
+  border-radius: 50px !important;
+}
+
+.ngx-pagination .current:hover {
+  border-radius: 50px !important; 
+  border: transparent !important;
+}
 
 p{
 font-size: 16px;

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostModel } from 'src/app/services/post/post-model';
@@ -56,7 +56,6 @@ export class ViewPostComponent implements OnInit, OnChanges {
     } else {
       localStorage.removeItem('foo') 
     }
-    //console.log(JSON.parse(window.sessionStorage.getItem('auth-user')).username);
   }
 
   ngOnChanges(change){
@@ -67,16 +66,6 @@ export class ViewPostComponent implements OnInit, OnChanges {
     this.getPostById();
     this.getCommentsForPost();
   }
-
-  
-
-  // getImg(name){
-  //   this.uploadFile.getFile(name).subscribe(data =>{
-  //     let objectURL = 'data:image/jpeg;base64,' + data.data;
-  //     console.log(objectURL);
-  //     return this.sanitizer.bypassSecurityTrustUrl(objectURL);
-  //   })
-  // }
 
   postComment() {
     this.commentPayload.comment = this.commentForm.get('comment').value;
@@ -95,6 +84,8 @@ export class ViewPostComponent implements OnInit, OnChanges {
     console.log(this.blogId);
     this.postService.getPost(this.blogId).subscribe(data => {
       this.post = data;
+      
+      //Calling retrival service to retrieve the image
       this.uploadFile.getFile(this.post.name).subscribe(data =>{
         this.post.image = "data:image/jpg;base64," + data.data;
         });

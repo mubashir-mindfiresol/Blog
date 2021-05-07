@@ -100,7 +100,7 @@
     box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
   }
   
-  .profile-card .profile-bio {
+  .profile-card .profile-details {
     width: 175px;
     height: 180px;
     display: inline-block;
@@ -373,7 +373,7 @@
       float: none;
       border-right: none;
     }
-    .profile-card .profile-bio {
+    .profile-card .profile-details {
       width: auto;
       height: auto;
       padding: 0px 24px 30px 20px;

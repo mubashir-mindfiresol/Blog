@@ -1,27 +1,25 @@
 <!-- Display Posts-->
-
 <div class="container">
-  
-<mat-card class="blog-card" *ngFor="let post of posts | paginate: { itemsPerPage: 5, currentPage: p }">
-    <!-- Section to Display Post Information-->
-    <mat-card-header>
-        <div mat-card-avatar class="blog-header-image"></div>
-            <mat-card-title>{{post.username}}</mat-card-title>
-            <mat-card-subtitle>{{post.category}} | {{post.createDate}} IST</mat-card-subtitle>
-    </mat-card-header>
-    <hr>
-    <h2>{{post.title}}</h2>
-    <img style="padding: 0 15px;" [src]="post.image" alt="blog_image">
-    <mat-card-content>
-        <p class="post-text" [innerHtml]="post.description"></p>
-    </mat-card-content> 
-    <span>
-      <button class="login" (click)="goToPost(post.id)">
-        Read Post
-      </button>
-    </span>
-    <ngx-spinner></ngx-spinner>
-</mat-card>
+  <mat-card class="blog-card" *ngFor="let post of posts | paginate: { itemsPerPage: 5, currentPage: p }">
+      <!-- Section to Display Post Information-->
+      <mat-card-header>
+          <div mat-card-avatar class="blog-header-image"></div>
+              <mat-card-title>{{post.username}}</mat-card-title>
+              <mat-card-subtitle>{{post.category}} | {{post.createDate}} IST</mat-card-subtitle>
+      </mat-card-header>
+      <hr>
+      <h2>{{post.title}}</h2>
+      <img style="padding: 0 15px;" [src]="post.image" alt="blog_image">
+      <mat-card-content>
+          <p class="post-text" [innerHtml]="post.description"></p>
+      </mat-card-content> 
+      <span>
+        <button class="login" (click)="goToPost(post.id)">
+          Read Post
+        </button>
+      </span>
+      <ngx-spinner></ngx-spinner>
+  </mat-card>
 </div>
 <pagination-controls 
   (pageChange)="onPageChange($event)"

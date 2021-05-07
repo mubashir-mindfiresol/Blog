@@ -10,3 +10,4 @@ export const blogsByIdApi="http://localhost:8080/api/blogs/id/";
 export const createBlogApi="http://localhost:8080/api/blogs/createblog";
 export const getAllBlogs="http://localhost:8080/api/blogs/";
 export const uploadApi = "http://localhost:8080/single/upload";
+export const getImgApi='http://localhost:8080/download/';

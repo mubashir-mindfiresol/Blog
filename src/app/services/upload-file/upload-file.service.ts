@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpHeaders, HttpEvent } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { uploadApi } from '../../../assets/constants';
+import { uploadApi, getImgApi } from '../../../assets/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,6 @@ export class UploadFileService {
     return this.http.post<any>(uploadApi, formData);
   }
   getFile(fileName: string): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/downloadtesting/'+ fileName);
+    return this.http.get<any>(getImgApi+ fileName);
   }
 }
