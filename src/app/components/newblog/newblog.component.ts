@@ -4,11 +4,10 @@ import { NewblogService } from 'src/app/services/newblog/newblog.service';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { UploadFileService } from 'src/app/services/upload-file/upload-file.service';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-newblog',
@@ -115,18 +114,6 @@ onFileChange(event) {
   }
   }
 }
-
-// onSelectFile(event) { // called each time file input changes
-//   if (event.target.files && event.target.files[0]) {
-//     var reader = new FileReader();
-
-//     reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-//     reader.onload = (event) => { // called once readAsDataURL is completed
-//       this.url = event.target.result;
-//     }
-//   }
-// }
 
   onSubmit() {
 

@@ -5,7 +5,7 @@ import { LikeService } from '../../services/like/like.service';
 import { PostService } from '../../services/post/post.service';
 import { throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -71,7 +71,7 @@ export class LikeButtonComponent implements OnInit,OnChanges {
         this.toastr.success("👍","You liked the blog");
       }
     }, error => {
-      this.toastr.error(error.error.message);
+      this.toastr.warning("Log In to like this blog","Login First");
       throwError(error);
     });
   }
