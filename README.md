@@ -19,15 +19,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 (HomePage - II)
 
-![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/postpage1.PNG)
+![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/postpage1.png)
 
 (PostPage - I)
 
-![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/postpage2.PNG)
+![Post Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/postpage2.png)
 
 (PostPage - II)
 
-![Edit Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/editblog.PNG)
+![Edit Page Screenshot](https://github.com/mubashir-mindfiresol/Blog/blob/main/images/editblog.png)
 
 (EditPage)
 
