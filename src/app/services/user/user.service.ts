@@ -10,10 +10,6 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(authApi + 'all', { responseType: 'text' });
-  }
-  
   getAdminBoard(): Observable<any> {
     return this.http.get(authApi + 'admin', { responseType: 'text' });
   }
