@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { PostModel } from 'src/app/services/post/post-model';
 import { PostService } from 'src/app/services/post/post.service';
+import { UploadFileService } from 'src/app/services/upload-file/upload-file.service';
 
 @Component({
   selector: 'app-update-blog',
@@ -30,7 +31,7 @@ export class UpdateBlogComponent implements OnInit {
     url:"",
   };
 
-  constructor(private activateRoute: ActivatedRoute, private postService: PostService, private spinner: NgxSpinnerService, private toastr: ToastrService, private _newblogService: NewblogService, private router: Router) {
+  constructor(private uploadFile:UploadFileService, private activateRoute: ActivatedRoute, private postService: PostService, private spinner: NgxSpinnerService, private toastr: ToastrService, private _newblogService: NewblogService, private router: Router) {
     this.blogId = this.activateRoute.snapshot.params.id;
   }
 
@@ -84,6 +85,10 @@ export class UpdateBlogComponent implements OnInit {
       this.model.category=this.post.category;
       this.model.description=this.post.description;
       this.model.url=this.post.url;
+        //Calling retrival service to retrieve the image
+        this.uploadFile.getFile(this.post.name).subscribe(data =>{
+          this.post.image = "data:image/jpg;base64," + data.data;
+          });
       console.log(this.model.category);
     }, error => {
       throwError(error);
@@ -100,8 +105,7 @@ export class UpdateBlogComponent implements OnInit {
     var today = new Date();
     var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear()+', ';
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var edited = "(edited)"
-    this.model.createDate = edited +" | "+ date+' '+time+' ';
+    this.model.createDate = date+' '+time+' ';
     this.model.url=this.post.url;
     this.postService.updatePost(this.blogId, this.model)
     .subscribe(
