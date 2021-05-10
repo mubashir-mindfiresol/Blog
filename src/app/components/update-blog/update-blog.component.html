@@ -27,7 +27,7 @@
             </select>
         </div>
         <div class="row">
-            <img style="padding: 0 15px;" mat-card-image src="{{post.url}}" alt="blog_image">
+            <img style="padding: 0 15px;" mat-card-image [src]="post.image" alt="blog_image">
         </div>
         <div class="form-group">
             <legend><span class="number"> </span> Description</legend>
